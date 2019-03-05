@@ -1,0 +1,9 @@
+.white-header{
+  background: #FFF;
+  box-shadow: 0 2px 10px #cac7c7;
+}
+
+.activity-container{
+  padding: 180px 80px 20px 80px;
+  position: relative;
+}

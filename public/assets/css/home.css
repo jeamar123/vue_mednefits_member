@@ -1,0 +1,337 @@
+.home-container{
+	background: url('../img/home-bg.jpg');
+	background-size: cover;
+  background-position: 100%;
+  padding: 180px 80px 20px 80px;
+  position: relative;
+}
+.home-container .overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(125, 125, 125, .2);
+  z-index: 1;
+}
+.home-container p.page-header{
+	color: #009EC8;
+	font-weight: 700;
+	font-size: 35px;
+	margin-bottom: 15px;
+}
+.home-container p.page-subheader{
+	color: #009EC8;
+	font-size: 30px;
+	margin-bottom: 50px;
+}
+.home-container .dash-container{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.home-container .white-box{
+  background: #fff;
+  box-shadow: 2px 2px 15px #333;
+  padding: 25px 20px 5px 20px;
+  z-index: 2;
+  margin-right: 10px;
+}
+.home-container .white-box .box-header{
+  font-weight: 700;
+  font-size: 20px;
+  color: #333;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e9e9e9;
+}
+.home-container .white-box .box-header a{
+  float: right;
+  margin: 0 20px;
+}
+.home-container .white-box .box-header a img{
+  width: 20px;
+}
+.home-container .white-box .box-header span{
+	font-weight: 300;
+	font-size: 16px;
+}
+.home-container .white-box .coverage-item{
+	margin-top: 20px;
+	display: flex;
+  border-bottom: 1px solid #e9e9e9;
+  padding-bottom: 20px;
+}
+.home-container .white-box .coverage-item .item-img{
+	width: 35px;
+	margin: 0 10px;
+}
+.home-container .white-box .coverage-item .item-img img{
+	width: 100%;
+}
+.home-container .white-box .coverage-item .item-title{
+	flex: 1.5;
+	margin: 0 0 0 20px;
+}
+.home-container .white-box .coverage-item .item-title p{
+  color: #666;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.home-container .white-box .coverage-item .item-desc{
+	flex: 2;
+	margin: 0 10px;
+}
+.home-container .white-box .coverage-item .item-desc p{
+	font-size: 14px;
+  font-weight: 700;
+  color: #999;
+  line-height: 1.5;
+}
+.spending-account-option-container{
+  text-align: center;
+  margin: 20px auto;
+}
+.spending-account-option-container p{
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+.spending-account-option-container .spending-btn-wrapper button{
+  display: inline-block;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-left: 0px;
+  background-color: #fff;
+  border-color: #ccc;
+  border-style: solid;
+}
+.spending-account-option-container .spending-btn-wrapper button.btn-medical{
+  border-radius: 4px 0 0 4px;
+  border-width: 2px 1px 2px 2px;
+}
+.spending-account-option-container .spending-btn-wrapper button.btn-wellness{
+  border-radius: 0 4px 4px 0;
+  border-width: 2px 2px 2px 1px;
+}
+.spending-account-option-container .spending-btn-wrapper button.active,
+.spending-account-option-container .spending-btn-wrapper button:hover{
+  border-color: #009EC8;
+  background: #FFF;
+}
+.activity-body-container{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 60px;
+  border-bottom: 1px solid #e9e9e9;
+}
+.activity-body-container .balance-wrapper{
+  flex: 1;
+  max-width: 250px;
+  margin: 20px 5px 0 5px;
+  text-align: center;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px dashed #aaa;
+}
+.activity-body-container .balance-wrapper .balance-text{
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.activity-body-container .balance-wrapper .balance-value{
+  font-weight: 700;
+  font-size: 30px;
+  color: #00B2E1;
+}
+.activity-body-container .balance-wrapper .balance-value span{
+  font-size: 18px;
+  vertical-align: middle;
+}
+.activity-body-container .total-spent-chart{
+  margin: 0 5px;
+  width: 235px;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+.activity-body-container .total-spent-chart .modebar{
+  display: none !important;
+}
+.activity-body-container .total-spent-chart #spent-pie{
+  display: inline-block;
+  position: relative;
+  top: -75px;
+  left: -50px;
+}
+.activity-body-container .total-spent-chart .spent-chart-value-wrapper{
+  text-align: center;
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  font-weight: 700;
+}
+.activity-body-container .total-spent-chart .spent-chart-value{
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.activity-body-container .total-spent-chart .spent-chart-text{
+  font-size: 14px;
+  color: #555;
+}
+.activity-body-container .account-count{
+  flex: 1;
+  margin: 0 20px 0 5px;
+  font-weight: 700;
+  color: #FFF;
+  text-align: center;
+}
+.activity-body-container .account-count .in-network-count-wrapper{
+  overflow: hidden;
+  background-color: #00B2E1;
+  border-radius: 20px 20px 0 0;
+  padding: 15px 0;
+}
+.activity-body-container .account-count .out-network-count-wrapper{
+  overflow: hidden;
+  background-color: #8EA4AA;
+  border-radius: 20px 20px 0 0;
+  margin-top: -15px;
+  box-shadow: 0px 0px 20px #666;
+  padding: 15px 0 5px 0;
+}
+.activity-body-container .account-count .header-text{
+  margin-bottom: 10px;
+}
+.activity-body-container .account-count .spent-text{
+  font-size: 11px;
+  margin-bottom: 5px;
+}
+.activity-body-container .account-count .spent-value{
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+.recent-transactions-container{
+  margin: 20px 0;
+}
+.recent-transactions-container .recent-transactions-text{
+  font-weight: 700;
+}
+.recent-transactions-container .texts-container{
+  display: flex;
+}
+.recent-transactions-container .in-network-text{
+  text-align: center;
+  font-weight: 700;
+  color: #88c6e7;
+  font-size: 15px;
+  margin: 15px 0 15px 0;
+  flex: 1;
+}
+.recent-transactions-container .out-network-text{
+  text-align: center;
+  font-weight: 700;
+  color: #999;
+  font-size: 15px;
+  margin: 15px 0 15px 0;
+  flex: 1;
+}
+.transactions-container{
+  display: flex;
+  width: 100%;
+  margin: 10px 0;
+  height: 200px;
+  overflow-y: auto;
+}
+.transactions-container .in-network-transactions{
+  flex: 1;
+  border-right: 1px solid #ececec;
+  margin: 0 10px;
+}
+.transactions-container .out-network-transactions{
+  flex: 1;
+  margin: 0 10px;
+}
+.transaction-item{
+  display: flex;
+  margin-bottom: 15px;
+}
+.transaction-item .icon-wrapper{
+  flex: 1;
+}
+.transaction-item .icon-wrapper img{
+  width: 24px;
+}
+.transaction-item .item-desc{
+  flex: 4;
+  font-weight: 700;
+}
+.transaction-item .item-desc p.item-date{
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.transaction-item .item-desc p.item-service{
+  font-size: 11px;
+  position: relative;
+  color: #555;
+  margin-bottom: 12px;
+}
+.transaction-item .item-desc p.item-service:after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 8px;
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  z-index: 999;
+  background-color: #555;
+}
+.transaction-item .item-desc p.item-clinic{
+  font-size: 11px;
+  position: relative;
+  color: #aaa;
+}
+.transaction-item .item-desc p.item-clinic:before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 8px;
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  z-index: 999;
+  background-color: #bbb;
+  color: #bbb;
+}
+.transaction-item .item-value{
+  flex: 2;
+  text-align: center;
+  font-weight: 700;
+}
+.transaction-item .item-value p{
+  color: #88c6e7;
+  margin-bottom: 5px;
+}
+.transaction-item .item-value .cash-badge{
+  background: #31822c;
+  color: #fff;
+  display: inline-block;
+  padding: 6px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 300;
+}
+.transaction-item .item-value .transaction-status-label{
+  font-size: 12px;
+  background-color: #999;
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-weight: 300;
+  display: inline-block;
+}
