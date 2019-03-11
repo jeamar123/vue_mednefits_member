@@ -67,7 +67,9 @@
 	  </transition>
 
 	  <div v-if="showLoader" class="main-body-loader">
-			<div class="loader"></div>
+			<div class="loader">
+				<img :src="'../assets/img/mednefits_icon_blue.png'" style="	width: 25px;margin-top: 20px;">
+			</div>
 		</div>
 
 	  <div v-if="showIconLoader" class="preloader-container">

@@ -759,6 +759,7 @@ a:focus{
     flex: 1;
   }
 
+  .form-div select,
   .form-div input[type="text"],
   .form-div input[type="password"]{
     width: 100%;
@@ -798,6 +799,7 @@ a:focus{
       animation: spin 2s linear infinite;
       margin: 0 auto;
       margin-top: 20px !important;
+      text-align: center;
   }
 
   @keyframes spin {

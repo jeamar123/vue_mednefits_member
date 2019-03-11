@@ -26,10 +26,101 @@
 .eclaim-body-container .eclaim-form-wrapper{
   background: #fff;
   box-shadow: 0px 0px 8px #aaa;
-  padding: 30px 20px 50px 20px;
+  padding: 30px 40px 50px 40px;
   min-height: 500px;
   width: 100%;
 }
+.eclaim-form-wrapper .form-div{
+  display: flex;
+  margin-bottom: 30px;
+}
+.eclaim-form-wrapper .form-div label{
+  flex: 2;
+  font-size: 14px;
+}
+.eclaim-form-wrapper .form-div label span{
+  color: red;
+}
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper{
+  flex: 3;
+  position: relative;
+}
+.eclaim-body-container .btn-medical,
+.eclaim-body-container .btn-wellness{
+  background-color: transparent;
+  color: #777;
+  padding: 0;
+  font-weight: 700;
+  font-size: 14px;
+  width: 48%;
+  height: 40px;
+  box-shadow: none;
+  border-width: 2px;
+  border: 2px solid #eee;
+  border-radius: 4px;
+}
+.eclaim-body-container .btn-medical.active,
+.eclaim-body-container .btn-wellness.active,
+.eclaim-body-container .btn-medical:hover,
+.eclaim-body-container .btn-wellness:hover{
+  border-color: #36aaec;
+}
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper input,
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper select{
+  width: 100%;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  height: 38px;
+  border-radius: 4px;
+}
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper input::placeholder{
+  opacity: .5;
+}
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper input{
+  padding-left: 15px;
+}
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper select{
+  padding-left: 10px;
+}
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper .icon-right{
+  position: absolute;
+  width: 49px;
+  right: 0;
+  top: 0;
+  padding: 10px 15px;
+  border-left: 1px solid #f1f1f1;
+}
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper .icon-left{
+  position: absolute;
+  width: 49px;
+  left: 0;
+  top: 0;
+  padding: 10px 15px;
+  border-right: 1px solid #f1f1f1;
+}
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper.with-right-icon input{
+  padding-right: 45px;
+}
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper.with-left-icon input{
+  padding-left: 45px;
+}
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper span.icon-right.dollar-sign{
+  color: #0086D3;
+  font-weight: 700;
+  padding: 12px 15px;
+}
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper.visit-time-input .visit-time-opt-wrapper{
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+}
+.visit-time-opt-wrapper .drop-time-btn{
+  flex: 1;
+}
+.visit-time-opt-wrapper .drop-day-btn{
+  flex: 1;
+}
+
 
 .eclaim-steps-wrapper{
   padding-left: 50px;

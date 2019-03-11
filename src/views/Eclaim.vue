@@ -10,10 +10,11 @@
 			<div class="eclaim-form-wrapper">
 				<div class="form-div">
 					<label>
-						Claim Type<span>*</span>
+						Spending Account<span>*</span>
 					</label>	
-					<div class="spending-buttons-container">
-						<button class="btn btn-medical">Medical</button>
+
+					<div class="eclaim-input-wrapper">
+						<button class="btn btn-medical" style="margin-right: 5px;">Medical</button>
 						<button class="btn btn-wellness">Wellness</button>
 					</div>
 				</div>
@@ -21,35 +22,104 @@
 		  		<label>
 		  			Claim Type<span>*</span>
 		  		</label>
-		  		<select>
-		  			<option>1</option>
-		  			<option>2</option>
-		  			<option>3</option>
-		  		</select>
+		  		<div class="eclaim-input-wrapper">
+			  		<select>
+			  			<option></option>
+			  			<option>General Practitioner</option>
+			  			<option>2</option>
+			  			<option>3</option>
+			  		</select>
+		  		</div>
 		  	</div>
 		  	<div class="form-div">
 		  		<label>
 		  			Provider<span>*</span>
 		  		</label>
-		  		<input type="text" placeholder="Mednefits Pte Ltd">
+		  		<div class="eclaim-input-wrapper">
+		  			<input type="text" placeholder="Mednefits Pte Ltd">
+		  		</div>
 		  	</div>
 		  	<div class="form-div">
 		  		<label>
-		  			Provider<span>*</span>
+		  			Visit Date<span>*</span>
 		  		</label>
-		  		<input type="text" placeholder="Mednefits Pte Ltd">
+		  		<div class="eclaim-input-wrapper with-right-icon">
+		  			<input type="text" placeholder="Date">
+		  			<img :src="'../assets/img/coverage/Submit-E-Claim---Visit-Date.png'" class="icon-right">
+		  		</div>
 		  	</div>
 		  	<div class="form-div">
 		  		<label>
-		  			Provider<span>*</span>
+		  			Visit Time<span>*</span>
 		  		</label>
-		  		<input type="text" placeholder="Mednefits Pte Ltd">
+		  		<div class="eclaim-input-wrapper with-left-icon visit-time-input">
+		  			<img :src="'../assets/img/coverage/Submit-E-Claim---Visit-Time.png'" class="icon-left">
+		  			<input type="text">
+		  			<div class="visit-time-opt-wrapper">
+		  				<div class="drop-time-btn">
+		  					<i class="fa fa-caret-down"></i>
+		  				</div>
+		  				<div class="drop-day-btn">
+		  					<span>AM</span>
+		  					<i class="fa fa-caret-down"></i>
+
+		  					<div class="drop-day-wrapper">
+		  						<div class="day">AM</div>
+		  						<div class="day">PM</div>
+		  					</div>
+		  				</div>
+		  			</div>
+
+		  			<div class="visit-time-wrapper">
+		  				<div class="hour-wrapper">
+		  					<div class="arrow">
+		  						<i class="fa fa-chevron-up"></i>
+		  					</div>
+		  					<div class="hour-time">
+		  						<span>05</span>
+		  					</div>
+		  					<div class="arrow">
+		  						<i class="fa fa-chevron-down"></i>
+		  					</div>
+		  				</div>
+		  				<div class="time-middle">
+		  					<span>:</span>
+		  				</div>
+		  				<div class="minute-wrapper">
+		  					<div class="arrow">
+		  						<i class="fa fa-chevron-up"></i>
+		  					</div>
+		  					<div class="minute-time">
+		  						<span>59</span>
+		  					</div>
+		  					<div class="arrow">
+		  						<i class="fa fa-chevron-down"></i>
+		  					</div>
+		  				</div>
+		  			</div>
+		  		</div>
 		  	</div>
 		  	<div class="form-div">
 		  		<label>
-		  			Provider<span>*</span>
+		  			Claim Amount<span>*</span>
 		  		</label>
-		  		<input type="text" placeholder="Mednefits Pte Ltd">
+		  		<div class="eclaim-input-wrapper with-right-icon">
+		  			<input type="text" placeholder="Price">
+		  			<span class="icon-right dollar-sign">S$</span>
+		  		</div>
+		  	</div>
+		  	<div class="form-div">
+		  		<label>
+		  			Member<span>*</span>
+		  		</label>
+		  		<div class="eclaim-input-wrapper">
+		  			<select>
+			  			<option></option>
+			  			<option>1</option>
+			  			<option>2</option>
+			  			<option>3</option>
+			  		</select>
+		  		</div>
 		  	</div>
 			</div>
 			<div class="eclaim-steps-wrapper">
@@ -95,7 +165,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 
