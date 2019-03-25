@@ -26,7 +26,7 @@
 .eclaim-body-container .eclaim-form-wrapper{
   background: #fff;
   box-shadow: 0px 0px 8px #aaa;
-  padding: 30px 40px 50px 40px;
+  padding: 30px 40px 0px 40px;
   min-height: 500px;
   width: 100%;
 }
@@ -71,6 +71,7 @@
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
   height: 38px;
   border-radius: 4px;
+  color: #777;
 }
 .eclaim-form-wrapper .form-div .eclaim-input-wrapper input::placeholder{
   opacity: .5;
@@ -80,6 +81,14 @@
 }
 .eclaim-form-wrapper .form-div .eclaim-input-wrapper select{
   padding-left: 10px;
+}
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper input:disabled,
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper select:disabled{
+  cursor: not-allowed;
+}
+.disableClick {
+  pointer-events: none;
+  cursor: not-allowed;
 }
 .eclaim-form-wrapper .form-div .eclaim-input-wrapper .icon-right{
   position: absolute;
@@ -101,7 +110,7 @@
   padding-right: 45px;
 }
 .eclaim-form-wrapper .form-div .eclaim-input-wrapper.with-left-icon input{
-  padding-left: 45px;
+  padding-left: 60px;
 }
 .eclaim-form-wrapper .form-div .eclaim-input-wrapper span.icon-right.dollar-sign{
   color: #0086D3;
@@ -113,13 +122,287 @@
   right: 0;
   top: 0;
   display: flex;
+  height: 38px;
+  width: 70px;
+  justify-content: center;
+  align-items: center;
+}
+.eclaim-form-wrapper .form-div .eclaim-input-wrapper.visit-time-input input{
+  padding-right: 80px;
 }
 .visit-time-opt-wrapper .drop-time-btn{
-  flex: 1;
+  width: 30px;
+  padding: 12px 0px;
+  text-align: center;
+  border-left: 1px solid #e9e9e9;
+  cursor: pointer;
 }
 .visit-time-opt-wrapper .drop-day-btn{
   flex: 1;
+  text-align: center;
+  position: relative;
+  padding: 10px 0px 2px 0px;
+  border-left: 1px solid #e9e9e9;
+  cursor: pointer;
 }
+.visit-time-opt-wrapper .oi{
+  font-size: 10px;
+}
+.visit-time-opt-wrapper .drop-day-btn .day-value{
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+}
+.visit-time-opt-wrapper .drop-day-btn .drop-day-wrapper{
+  position: absolute;
+  top: 40px;
+  left: -2px;
+  box-shadow: 0px 0px 4px #000000a1;
+  background: #FFF;
+  z-index: 99;
+}
+.visit-time-opt-wrapper .drop-day-btn .drop-day-wrapper .day{
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #888;
+}
+.visit-time-opt-wrapper .drop-day-btn .drop-day-wrapper .day:hover{
+  background: #f5f5f5;
+}
+.visit-time-wrapper{
+  background: #fff;
+  width: 60%;
+  position: absolute;
+  left: 46px;
+  top: 40px;
+  border-radius: 1px;
+  padding: 8px 0;
+  z-index: 999;
+  box-shadow: 0px 0px 4px #000000a1;
+}
+.visit-time-wrapper .visit-time-selection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.visit-time-wrapper .hour-wrapper{
+  flex: 1;
+}
+.visit-time-wrapper .time-middle{
+  width: 10px;
+}
+.visit-time-wrapper .minute-wrapper{
+  flex: 1;
+}
+.visit-time-wrapper .arrow{
+  flex: 1;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.visit-time-wrapper .arrow .oi{
+  font-size: 12px;
+}
+.visit-time-wrapper .hour-time,
+.visit-time-wrapper .minute-time{
+  font-size: 15px;
+  padding: 12px 0;
+  font-weight: 700;;
+}
+.eclaim-form-wrapper .btn-next{
+  background-color: #0086D3;
+  color: #fff;
+  padding: 12px 45px;
+  font-weight: 700;
+  font-size: 17px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.eclaim-form-wrapper .btn-next:disabled{
+  cursor: not-allowed;
+  background: rgba(0, 134, 211, 0.5);
+}
+.eclaim-form-wrapper .drop-box{
+  text-align: center;
+  padding: 15px;
+  background: #f6f6f6;
+  border: 2px dashed #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.eclaim-form-wrapper .drop-box input{
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.eclaim-form-wrapper .drop-box input[disabled]{
+  cursor: not-allowed;
+}
+.eclaim-form-wrapper .drop-box .drop-file-text{
+  font-weight: 700;
+  margin-top: 10px;
+  font-size: 18px;
+}
+.eclaim-form-wrapper .drop-box .or-text{
+  font-weight: 700;
+  margin: 10px 0;
+  font-size: 12px;
+  color: #888;
+}
+.eclaim-form-wrapper .drop-box .select-file-text{
+  font-weight: 700;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #009EC8;
+  margin-bottom: 15px;
+}
+.eclaim-form-wrapper .uploaded-text{
+  font-weight: 700;
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+.eclaim-form-wrapper .uploads-box{
+  height: 259px;
+  overflow-y: auto;
+  padding-right: 10px;
+  padding-left: 15px;
+}
+.eclaim-form-wrapper .upload-wrapper{
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  height: 65px;
+  display: flex;
+  width: 100%;
+}
+.eclaim-form-wrapper .img-wrapper{
+  width: 50px;
+}
+.eclaim-form-wrapper .upload-details{
+  flex: 1;
+}
+.eclaim-form-wrapper .upload-details h5{
+  margin-bottom: 10px;
+}
+.eclaim-form-wrapper .upload-details label{
+  width: 120px;
+  font-weight: 700;
+  display: inline-block;
+}
+.eclaim-form-wrapper .upload-details .file-size{
+  font-size: 11px;
+  color: #888;
+  font-weight: 700;
+}
+.eclaim-form-wrapper .upload-details .close-upload{
+  float: right;
+}
+.eclaim-form-wrapper .upload-details .close-upload .oi{
+  float: right;
+  font-size: 10px;
+  color: #000;
+}
+.eclaim-form-wrapper .upload-details .progress-wrapper{
+  width: 100%;
+  height: 4px;
+  background-color: #d8d3d3;
+  overflow: hidden;
+}
+.eclaim-form-wrapper .upload-details .progress-wrapper .progress-bar{
+  width: 40%;
+  height: 4px;
+  background-color: #00C0F7;
+  transition: all 1s ease;
+}
+.eclaim-form-wrapper .upload-details .progress-wrapper .progress-bar.progress-error{
+  background-color: #bf234fd1;
+}
+.eclaim-form-wrapper .upload-details .upload-status{
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 11px;
+  color: #555;
+}
+.eclaim-form-wrapper .upload-details .upload-status.text-error{
+  color: #e02323;
+}
+.eclaim-form-wrapper .upload-details .upload-status.text-success{
+  color: #48b505;
+}
+.eclaim-form-wrapper .uploads-box::-webkit-scrollbar-track{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+.eclaim-form-wrapper .uploads-box::-webkit-scrollbar{
+  width: 3px;
+  background-color: #F5F5F5;
+}
+.eclaim-form-wrapper .uploads-box::-webkit-scrollbar-thumb{
+  background-color: #0ae;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
+}
+.eclaim-form-wrapper .eclaim-summary-container .summary{
+  display: flex;
+  width: 100%;
+  font-weight: 700;
+  margin-bottom: 35px;
+  color: #555;
+}
+.eclaim-form-wrapper .eclaim-summary-container .summary .label{
+  width: 200px;
+}
+.eclaim-form-wrapper .eclaim-summary-container .summary .label p{
+
+}
+.eclaim-form-wrapper .eclaim-summary-container .summary .value{
+  flex: 1;
+}
+.eclaim-form-wrapper .eclaim-summary-container .summary .value p{
+  font-size: 16px;
+  color: #009EC8;
+}
+.eclaim-form-wrapper .eclaim-summary-container .summary .value .receipt{
+  border: 1px solid #ddd;
+  width: 60px;
+  height: 60px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+.eclaim-form-wrapper .eclaim-summary-container .summary .value .receipt img{
+  width: 58px;
+  height: 58px;
+}
+.eclaim-form-wrapper .eclaim-success-wrapper{
+  padding: 70px 20px 150px 20px;
+  text-align: center;
+}
+.eclaim-form-wrapper .eclaim-success-wrapper img{
+  margin-bottom: 50px;
+}
+.eclaim-form-wrapper .eclaim-success-wrapper h5{
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #009EC8;
+  font-size: 18px;
+}
+.eclaim-form-wrapper .eclaim-success-wrapper p{
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  color: #555;
+  line-height: 1.3;
+}
+
+
+
 
 
 .eclaim-steps-wrapper{

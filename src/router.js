@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import VueMoment from 'vue-moment'
 import axios from 'axios'
 
 axios.defaults.baseURL = process.env.BASE_URL;
@@ -15,7 +14,7 @@ import Eclaim from './views/Eclaim.vue'
 
 Vue.use(Router)
 Vue.use(axios)
-Vue.use(VueMoment)
+
 
 export default new Router({
   mode: 'history',

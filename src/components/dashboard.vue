@@ -30,7 +30,7 @@
       hideIconLoading() {
       	setTimeout(()=>{
 				  this.showIconLoader = false;
-				},500);
+				},1000);
       },
       showLoading() {
       	this.showLoader = true;
@@ -38,7 +38,7 @@
       hideLoading() {
       	setTimeout(()=>{
 				  this.showLoader = false;
-				},500);
+				},1000);
       },
       toggleLogout() {
       	this.isLogoutDropShow = !this.isLogoutDropShow ? true : false;
