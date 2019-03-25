@@ -3,7 +3,7 @@
 }
 
 body,html{
-  height: 100%;
+  /*height: 100%;*/
   width: 100%;
   background: #f5f5f5;
   font-family: 'Helvetica Light' !important;
@@ -12,6 +12,10 @@ body,html{
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+}
+
+html{
+  height: auto;
 }
 
 button{
@@ -40,7 +44,7 @@ button{
   text-align: center;
 }*/
 
-input{
+input, select, textarea{
   font-family: 'Helvetica Light';
 }
 
@@ -52,6 +56,8 @@ a{
 a:focus{
   outline: none;
 }
+
+body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) { overflow-y: visible !important; }
 
 /*---------- NAVBAR -----------*/
   .navbar{
@@ -528,6 +534,7 @@ a:focus{
     background-color: rgba(0, 0, 0, .5);
     display: table;
     transition: opacity .3s ease;
+    z-index: 99999;
   }
 
   .modal-wrapper {
@@ -787,7 +794,7 @@ a:focus{
     width: 100%;
     height: 100%;
     background-color: rgba( 255,255,255,0.9 );
-    z-index: 99;
+    z-index: 9999;
   }
 
   .main-body-loader .loader {
