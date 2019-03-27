@@ -6,6 +6,11 @@
 			<div class="year-selector">Last year</div>
 			<div class="year-selector">Custom</div>
 		</div>
+
+		<div class="activity-slider-container">
+			<vue-slider class="range-slider" v-model="range_values" :marks="range_marks" :enableCross="false" :min="1" :max="12" :tooltip="'none'"></vue-slider>
+		</div>
+
 		<div class="benefit-dollars-container">
 			<div class="spending-account-wrapper">
 				<h5>Spending Account</h5>

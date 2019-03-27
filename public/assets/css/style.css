@@ -5,7 +5,7 @@
 body,html{
   /*height: 100%;*/
   width: 100%;
-  background: #f5f5f5;
+  background: #f1f1f1;
   font-family: 'Helvetica Light' !important;
   color: #444340;
   font-size: 14px;
@@ -876,3 +876,65 @@ body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) { overflow-y: v
     background: rgba(210,210,210,.5);
   }
 /*-------------------------------*/
+
+
+
+
+
+
+
+/*------------ RANGE SLIDER ----------*/
+  .range-slider{
+    position: relative;
+  }
+  .range-slider .vue-slider-rail:before{
+    content: "";
+    width: 50px;
+    height: 2px;
+    background: #E5E5E5;
+    position: absolute;
+    top: 0;
+    left: -50px;
+    border-radius: 10px 0 0 10px;
+  }
+  .range-slider .vue-slider-rail:after{
+    content: "";
+    width: 50px;
+    height: 2px;
+    background: #E5E5E5;
+    position: absolute;
+    top: 0;
+    right: -50px;
+    border-radius: 0 10px 10px 0;
+  }
+  .range-slider .vue-slider-rail{
+    background-image: none;
+    background-color: #E5E5E5;
+    height: 2px;
+  }
+  .range-slider .vue-slider-marks{
+    background-image: none;
+    background-color: #E5E5E5;
+    height: 2px;
+  }
+  .range-slider .vue-slider-mark-step{
+    background-color: transparent;
+  }
+  .range-slider .vue-slider-mark-label{
+    color: #666;
+    font-weight: 700;
+    transform: translate(-50%,-50px) !important;
+  }
+  .range-slider .vue-slider-dot-handle {
+    position: relative;
+    top: -3px;
+    left: -3px;
+    width: 20px;
+    height: 20px;
+    background-color: #f5f5f5;
+    box-shadow: none;
+    border: 2px solid #40B0DE;
+    background-image: none !important;
+    z-index: 99;
+  }
+/*------------------------------------*/
