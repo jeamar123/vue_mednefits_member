@@ -2,9 +2,9 @@
 	<div class="activity-container">
 		<div class="activity-header-navigation">
 			<div>Select a timeframe</div>
-			<div class="year-selector">This year</div>
-			<div class="year-selector">Last year</div>
-			<div class="year-selector">Custom</div>
+			<a class="year-selector active">This year</a>
+			<a class="year-selector">Last year</a>
+			<a class="year-selector">Custom</a>
 		</div>
 
 		<div class="activity-slider-container">
@@ -44,8 +44,44 @@
 				</div>
 				<div class="spending-details-col-3">
 					<h5>Spending Breakdown</h5>
+					<div class="progress-wrapper">
+						<div class="progress-bar"></div>
+					</div>
+					<div class="in-out-network-container">
+						<div class="in-network-box">
+							<h5>
+								S$ <span>00.00</span>
+							</h5>
+							<div>In-network</div>
+						</div>
+						<div class="out-network-box">
+							<h5>
+								S$ <span>00.00</span>
+							</h5>
+							<div>Out-network</div>
+						</div>
+					</div>
 				</div>
 			</div>
+		</div>
+		<div class="transactions-wrapper">
+			<div class="total-transactions-container">Total Transactions</div>
+			<div class="in-out-btn-container">
+				<button class="btn-network btn-in-network active">In-network Transactions</button>
+				<button class="btn-network btn-out-network">Out-network Transactions</button>
+			</div>
+			<div class="spent-download-container">
+				<div class="download-container">
+					<span>Download</span>
+					<img :src="'../assets/img/coverage/Download.png'">
+				</div>
+				<div class="total-spent-container">
+					Total Spent <span>S$</span>
+				</div>
+			</div>
+		</div>
+		<div class="transaction-table-container">
+			
 		</div>
 	</div>
 </template>
