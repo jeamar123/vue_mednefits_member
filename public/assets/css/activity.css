@@ -80,3 +80,35 @@
 	border-radius: 0 4px 4px 0;
   border-width: 2px 2px 2px 1px;
 }
+
+.spending-account-details-container {
+	display: flex;
+}
+
+.spending-account-details-container .amount-text-wrapper h4 {
+	font-size: 23px;
+	font-weight: 700;
+	color: #009EC8;
+	margin-bottom: 10px;
+}
+
+.spending-account-details-container .amount-text-wrapper div {
+	font-size: 12px;
+	font-weight: 700;
+	color: #999;
+	text-transform: uppercase;
+}
+
+.spending-details-col-1,
+.spending-details-col-2 {
+	width: 20%;
+	padding-right: 15px;
+}
+
+.spending-details-col-2 {
+	align-self: center;
+}
+
+.spending-details-col-1 .amount-text-wrapper {
+	margin-bottom: 20px;
+}

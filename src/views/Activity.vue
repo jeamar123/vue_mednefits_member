@@ -38,7 +38,7 @@
 					</div>
 				</div>
 				<div class="spending-details-col-3">
-					
+					<h5>Spending Breakdown</h5>
 				</div>
 			</div>
 		</div>
