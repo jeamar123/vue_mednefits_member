@@ -6,6 +6,42 @@
 			<div class="year-selector">Last year</div>
 			<div class="year-selector">Custom</div>
 		</div>
+		<div class="benefit-dollars-container">
+			<div class="spending-account-wrapper">
+				<h5>Spending Account</h5>
+				<div class="spending-type-container">
+					<button class="btn-spending btn-medical active">Medical</button>
+					<button class="btn-spending btn-wellness">Wellness</button>
+				</div>
+			</div>
+			<div class="spending-account-details-container">
+				<div class="spending-details-col-1">
+					<div class="amount-text-wrapper">
+						<h4>
+							S$ <span>4200.00</span>
+						</h4>
+						<div>Total Allocation</div>
+					</div>
+					<div class="amount-text-wrapper">
+						<h4>
+							S$ <span>4649.43</span>
+						</h4>
+						<div>Balance</div>
+					</div>	
+				</div>
+				<div class="spending-details-col-2">
+					<div class="amount-text-wrapper">
+						<h4>
+							S$ <span>1550.57</span>
+						</h4>
+						<div>Spent</div>
+					</div>
+				</div>
+				<div class="spending-details-col-3">
+					
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 

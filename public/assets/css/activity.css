@@ -11,8 +11,72 @@
 
 .activity-header-navigation {
 	display: flex;
+	font-weight: 700;
 }
 
 .activity-header-navigation .year-selector {
 	padding: 0 20px;
+	border-right: 1px solid #bbb;
+	cursor: pointer;
+}
+
+.activity-header-navigation .year-selector:last-child {
+	border-right: none;
+}
+
+.benefit-dollars-container {
+  background: #fff;
+  height: 285px;
+  box-shadow: 2px 2px 5px #999;
+  margin: 30px 0px;
+  padding: 15px 30px;
+}
+
+.spending-account-wrapper {
+	display: flex;
+	margin: 10px 0 20px 0;
+}
+
+.spending-account-wrapper h5 {
+	font-size: 16px;
+	font-weight: 700;
+	position: absolute;
+}
+
+.spending-type-container {
+  text-align: center;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.spending-type-container button {
+  display: inline-block;
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 20px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.spending-type-container .btn-spending:hover {
+	border-color: #009EC8;
+}
+
+.spending-type-container .btn-spending.active {
+	border-color: #009EC8;
+	outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+  box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+}
+
+.spending-type-container .btn-medical {
+  border-radius: 4px 0 0 4px;
+  border-width: 2px 1px 2px 2px;
+}
+
+.spending-type-container .btn-wellness {
+	border-radius: 0 4px 4px 0;
+  border-width: 2px 2px 2px 1px;
 }
