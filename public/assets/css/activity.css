@@ -7,3 +7,12 @@
   padding: 180px 80px 20px 80px;
   position: relative;
 }
+
+
+.activity-header-navigation {
+	display: flex;
+}
+
+.activity-header-navigation .year-selector {
+	padding: 0 20px;
+}
