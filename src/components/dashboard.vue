@@ -4,7 +4,7 @@
 	var dashboard = {
 		data() {
 			return {
-				showIconLoader : false,
+				showIconLoader : true,
 				showLoader : false,
 				user_id : null,
 				isLogoutDropShow : false,
@@ -19,6 +19,10 @@
 			}else{
 				this.user_id = localStorage.getItem('vue_session');
 			}
+
+			setTimeout(()=>{
+			  this.showIconLoader = false;
+			},3000);
 		},
 		methods: {
 			swal( title, message, type ) {

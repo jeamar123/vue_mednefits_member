@@ -66,18 +66,33 @@
 	    </div>
 	  </transition>
 
-	  <div v-if="showLoader" class="main-body-loader">
-			<div class="loader">
+	  <div v-if="showLoader" class="main-loader">
+			<!-- <div class="loader">
 				<img :src="'../assets/img/mednefits_icon_blue.png'" style="	width: 25px;margin-top: 20px;">
+			</div> -->
+			<div class="circle-loader">
+				<div class="preloader-container">
+					<div class="preloader-wrapper big active">
+				    <div class="spinner-layer spinner-blue-only">
+				      <div class="circle-clipper left">
+				        <div class="circle"></div>
+				      </div><div class="gap-patch">
+				        <div class="circle"></div>
+				      </div><div class="circle-clipper right">
+				        <div class="circle"></div>
+				      </div>
+				    </div>
+				  </div>
+				</div>
 			</div>
 		</div>
 
-	  <div v-if="showIconLoader" class="preloader-container">
-	  	<div class="preload-wrapper">
+	  <div v-if="showIconLoader" class="logo-preloader-container">
+	  	<div class="logo-preload-wrapper">
 				<img :src="'../assets/img/mednefits_icon_blue.png'">
 				<div class="white-space-20"></div>
-				<div class="preloader-box">
-					<div class="preloader-bar"></div>
+				<div class="logo-preloader-box">
+					<div class="logo-preloader-bar"></div>
 				</div>
 			</div>
 		</div>
