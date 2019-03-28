@@ -131,7 +131,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="in-network-table">
+		<div id="in-network-table" v-if="transaction_type == 1">
 			<div class="transaction-table-container">
 				<table>
 					<thead>
@@ -244,7 +244,7 @@
 				</table>
 			</div>
 		</div>
-		<div id="out-network-table">
+		<div id="out-network-table" v-if="transaction_type == 2">
 			<div class="transaction-table-container">
 				
 			</div>
