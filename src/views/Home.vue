@@ -21,7 +21,7 @@
 			</div>
 
 			<div class="white-box">
-				<p class="box-header">Your Activity <router-link tag="a" to="/app/dashboard"><img :src="'../assets/img/arrow-left-image.png'"></router-link></p>
+				<p class="box-header">Your Activity <router-link tag="a" to="/app/activity"><img :src="'../assets/img/arrow-left-image.png'"></router-link></p>
 
 				<div class="spending-account-option-container">
 					<p>Your Spending Account</p>

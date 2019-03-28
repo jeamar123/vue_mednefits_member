@@ -6,7 +6,8 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import VuePlotly from '@statnett/vue-plotly';
 import VueMoment from 'vue-moment';
 import VueSlider from 'vue-slider-component';
-
+import JsonExcel from 'vue-json-excel'
+ 
 import $ from 'jquery'; 
 
 import 'v-calendar/lib/v-calendar.min.css';
@@ -21,6 +22,7 @@ Vue.use(VueSweetalert2);
 Vue.use(VuePlotly);
 Vue.use(VueMoment);
 Vue.component('VueSlider', VueSlider);
+Vue.component('downloadExcel', JsonExcel)
 Vue.config.productionTip = false;
 
 // const $ = require('jquery');
