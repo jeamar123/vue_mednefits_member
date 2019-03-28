@@ -3,21 +3,32 @@
   box-shadow: 0 2px 10px #cac7c7;
 }
 .activity-container{
-  padding: 140px 80px 20px 80px;
+  padding: 140px 0px 20px 0px;
   position: relative;
 }
 .activity-slider-container{
   margin: 65px 50px 40px 50px;
+  padding: 0 80px; 
 }
 .activity-header-navigation {
 	display: flex;
 	font-weight: 700;
   margin-bottom: 50px;
+  padding: 0 80px;
+}
+.activity-header-navigation div {
+	color: #999;
 }
 .activity-header-navigation .year-selector {
 	padding: 0 20px;
 	border-right: 1px solid #bbb;
 	cursor: pointer;
+	text-decoration: none;
+	color: #bbb;
+  font-size: 15px;
+}
+.activity-header-navigation .year-selector.active {
+	color: #039be5;
 }
 .activity-header-navigation .year-selector:last-child {
 	border-right: none;
@@ -26,12 +37,12 @@
   background: #fff;
   height: 285px;
   box-shadow: 2px 2px 5px #999;
-  margin: 30px 0px;
+  margin: 30px 80px;
   padding: 15px 30px;
 }
 .spending-account-wrapper {
 	display: flex;
-	margin: 10px 0 20px 0;
+	margin: 10px 0 25px 0;
 }
 .spending-account-wrapper h5 {
 	font-size: 16px;
@@ -48,7 +59,7 @@
   margin-bottom: 25px;
   font-weight: 700;
   font-size: 16px;
-  padding: 10px 20px;
+  padding: 12px 20px;
   color: #333;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -69,4 +80,186 @@
 .spending-type-container .btn-wellness {
 	border-radius: 0 4px 4px 0;
   border-width: 2px 2px 2px 1px;
+}
+.spending-account-details-container {
+	display: flex;
+}
+.spending-account-details-container .amount-text-wrapper h4 {
+	font-size: 23px;
+	font-weight: 700;
+	color: #009EC8;
+	margin-bottom: 10px;
+}
+.spending-account-details-container .amount-text-wrapper div {
+	font-size: 12px;
+	font-weight: 700;
+	color: #999;
+	text-transform: uppercase;
+}
+.spending-details-col-1,
+.spending-details-col-2 {
+	width: 17%;
+	padding-right: 15px;
+}
+.spending-details-col-1 .amount-text-wrapper {
+	margin-bottom: 25px;
+}
+.spending-details-col-2 {
+	align-self: center;
+  padding-left: 15px;
+}
+.spending-details-col-3 h5 {
+	font-size: 17px;
+	font-weight: 700;
+	color: #555;
+}
+.spending-details-col-3 {
+	width: 68%;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.spending-details-col-3 .progress-wrapper {
+  width: 100%;
+  height: 20px;
+  background-color: #d8d3d3;
+  margin: 15px 0;
+}
+.spending-details-col-3 .progress-bar {
+	width: 98%;
+	height: 100%;
+	background-color: #00C0F7;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+  -webkit-transition: width .6s ease;
+  -o-transition: width .6s ease;
+  transition: width .6s ease;
+}
+.in-out-network-container {
+	display: flex;
+	padding-top: 10px;
+}
+.in-network-box {
+  margin-right: 40px;
+  padding-right: 40px;
+  border-right: 1px solid #bbb;
+}
+.in-network-box h5,
+.out-network-box h5 {
+	font-size: 14px;
+	font-weight: 700;
+	color: #009EC8;
+	margin-top: 3px;
+	margin-bottom: 8px;
+}
+.in-network-box div,
+.out-network-box div {
+	font-size: 10px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #999;
+	margin-bottom: 3px;
+}
+.transactions-wrapper {
+	display: flex;
+	padding-top: 20px;
+  padding: 0 80px;
+  margin-bottom: 25px;
+  padding-top: 20px;	
+}
+.in-out-btn-container button {
+	text-transform: uppercase;
+  padding: 10px 60px;
+  width: 40%;
+  text-align: center;
+  font-size: 12px;
+  border: 2px solid #aaa;
+  background: transparent;
+  border-radius: 6px;
+  color: #555;
+  font-weight: 700;
+}
+.btn-in-network {
+	margin-right: 7.5px;
+}
+.btn-network.active {
+  border: 2px solid #009EC8;
+  color: #009EC8;
+}
+.btn-out-network {
+	margin-left: 7.5px;
+}
+.total-transactions-container {
+	width: 25%;
+	font-size: 14px;
+	font-weight: 700;
+	align-self: center;
+}
+.in-out-btn-container {
+	width: 50%;
+	text-align: center;
+}
+.in-out-btn-container button {
+  text-transform: uppercase;
+  padding: 10px 60px;
+  width: 40%;
+  text-align: center;
+  font-size: 12px;
+  border: 2px solid #aaa;
+  background: transparent;
+  border-radius: 6px;
+  color: #555;
+  font-weight: 700;
+}
+.spent-download-container {
+	width: 25%;
+	text-align: right;
+}
+.total-spent-container {
+	font-size: 14px;
+	font-weight: 700;
+}
+.total-spent-container span {
+	width: 90px;
+	display: inline-block;
+}
+.spent-download-container .download-container {
+	font-size: 15px;
+	font-weight: 700;
+	color: #009EC8;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+.download-container img {
+  width: 20px;
+  display: inline-block;
+  margin-left: 5px;
+}
+.transaction-table-container {
+  background: #fff;
+  padding: 20px 85px;
+  min-height: 500px;
+}
+.transaction-table-container thead tr th {
+  background: #C6E7F7;
+  color: #555;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.transaction-table-container thead tr th:nth-child(1) {
+	width: 18%;
+}
+.transaction-table-container thead tr th:nth-child(2) {
+	width: 18%;
+}
+.transaction-table-container thead tr th:nth-child(3) {
+	width: 20%;
+}
+.transaction-table-container thead tr th:nth-child(4) {
+	width: 15%;
+}
+.transaction-table-container thead tr th:first-child,
+.transaction-table-container tbody tr th:first-child {
+	padding-left: 50px;
 }
