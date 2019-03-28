@@ -15,6 +15,7 @@
 				<v-date-picker 
     			mode='single' 
     			popoverDirection="bottom" 
+    			popoverVisibility="hover"
     			:formats="formats"
     			v-model='start_date' 
     			:input-props='{ class: "", placeholder: "", readonly: true }'
@@ -30,6 +31,7 @@
 				<v-date-picker 
     			mode='single' 
     			popoverDirection="bottom" 
+    			popoverVisibility="hover"
     			:formats="formats"
     			v-model='end_date' 
     			:input-props='{ class: "", placeholder: "", readonly: true }'
@@ -139,6 +141,7 @@
 						<th>Total Amount</th>
 						<th>Payment Type</th>
 						<th>Member</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -161,15 +164,79 @@
 						<td>
 							<span>Allan Cheam Alzula</span>
 						</td>
-						<td>
-							<a><i class="fa fa-angle-down"></i></a>
+						<td class="chevron-container">
+							<a><img class="chevron-right" :src="'../assets/img/002-arrow.png'"></a>
 						</td>
 					</tr>
-					<tr>
-						<td>
-							<div></div>
-							<div></div>
-							<div></div>
+					<tr class="in-network-subtr">
+						<td colspan="7" class="in-network-subtr-wrapper">
+							<div class="in-network-details">
+								<div class="in-network-subtr-col-1">
+									<div class="member-image-container">
+										<img src="https://res.cloudinary.com/dzh9uhsqr/image/upload/v1549795986/up0ebkyrragfte9bany7.jpg">
+										<label>Stackgecko GP</label>
+									</div>
+									<div class="service-box">
+										<img :src="'../assets/img/coverage/General-Practitioner.png'">
+										<label>General Practitioner</label>
+									</div>	
+								</div>
+								<div class="in-network-subtr-col-2">
+									<div class="trans-row">
+										<div class="label-wrapper">
+											<label>Date</label>
+										</div>
+										<div class="desc-wrapper">
+											<span>02 March 2019, 12:44am</span>
+										</div>
+									</div>
+									<div class="trans-row">
+										<div class="label-wrapper">
+											<label>Transaction #</label>
+										</div>
+										<div class="desc-wrapper">
+											<span>STA000846</span>
+										</div>
+									</div>
+									<div class="trans-row">
+										<div class="label-wrapper">
+											<label>Item/Service</label>
+										</div>
+										<div class="desc-wrapper">
+											<span>Genral Practitioner - Consultation and Sample Service</span>
+										</div>
+									</div>
+									<div class="trans-row">
+										<div class="label-wrapper">
+											<label>Total Amount</label>
+										</div>
+										<div class="desc-wrapper">
+											<span>S$ 0.01</span>
+										</div>
+									</div>
+									<div class="trans-row">
+										<div class="label-wrapper">
+											<label>Payment Type</label>
+										</div>
+										<div class="desc-wrapper">
+											<span>Mednefits Credits</span>
+										</div>
+									</div>
+									<div class="trans-row">
+										<div class="label-wrapper">
+											<label>Member</label>
+										</div>
+										<div class="desc-wrapper">
+											<span>Allan Cheam Alzula</span>
+										</div>
+									</div>
+								</div>
+								<div class="in-network-subtr-col-3">
+									<button class="btn-in-network btn-upload-receipt">Upload Receipt</button>
+									<button class="btn-in-network btn-download-receipt disabled">Download Receipt</button>
+									<button class="btn-in-network btn-e-receipt">Mednefits E-Receipt</button>
+								</div>
+							</div>
 						</td>
 					</tr>
 				</tbody>

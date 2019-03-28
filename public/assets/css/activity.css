@@ -19,6 +19,10 @@
 	display: inline-block;
 	position: relative;
 }
+.date-picker-container .btn-picker .popover-content *{
+	font-family: 'Helvetica Light' !important;
+	font-weight: 700 !important;
+}
 .date-picker-container .btn-picker img{
 	position: absolute;
   top: 10px;
@@ -238,16 +242,17 @@
   border-radius: 6px;
   color: #555;
   font-weight: 700;
+  line-height: 1.499999;
 }
 .btn-in-network {
-	margin-right: 7.5px;
+	margin-right: 7px;
 }
 .btn-network.active {
   border: 2px solid #009EC8;
   color: #009EC8;
 }
 .btn-out-network {
-	margin-left: 7.5px;
+	margin-left: 7px;
 }
 .total-transactions-container {
 	width: 25%;
@@ -304,6 +309,12 @@
   padding: 20px 85px;
   min-height: 500px;
 }
+.transaction-table-container table {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .transaction-table-container thead tr th {
   background: #C6E7F7;
   color: #555;
@@ -325,6 +336,99 @@
 	width: 15%;
 }
 .transaction-table-container thead tr th:first-child,
-.transaction-table-container tbody tr th:first-child {
+.transaction-table-container tbody tr td:first-child {
 	padding-left: 50px;
+}
+.transaction-table-container tbody tr .chevron-container {
+	padding-right: 10px;
+}
+.transaction-table-container tbody tr td {
+  color: #888;
+  border: none;
+  padding: 35px 10px;
+  font-weight: 700;
+  vertical-align: middle;
+  border-bottom: 1px solid #e9e9e9;
+  cursor: pointer;
+  font-size: 14px;
+}
+.transaction-table-container tbody tr td .chevron-right {
+	width: 14px;
+}
+.in-network-subtr .in-network-subtr-wrapper {
+  background: #f2f2f2;
+  border-bottom: none;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  padding: 35px 50px;
+}
+.in-network-subtr-wrapper .in-network-details {
+	display: grid;
+	grid-template-columns: 25% 44% 31%;
+	margin-bottom: 50px;
+}
+.member-image-container {
+	margin-bottom: 30px;
+}
+.in-network-subtr-col-1 .member-image-container img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #999;
+  margin-bottom: 10px;
+}
+.member-image-container label {
+	display: block;
+	font-size: 14px;
+}
+.service-box img {
+	width: 35px;
+}
+.service-box label {
+	display: block;
+	font-size: 18px;
+	margin-top: 8px;
+}
+.in-network-subtr-col-2 .trans-row {
+	display: grid;
+	grid-template-columns: 32% 50%;
+  grid-column-gap: 25px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.trans-row .label-wrapper {
+	text-align: right;
+	color: #444;
+	text-transform: uppercase;
+}
+.trans-row .desc-wrapper {
+	text-align: left;
+	color: #777;
+	width: 229px;
+}
+.in-network-subtr-col-3 button {
+  display: inherit;
+  margin-right: auto;
+  margin-left: auto;
+}
+.in-network-subtr-col-3 button:nth-child(2) {
+	margin-bottom: 40px;
+}
+.btn-upload-receipt,
+.btn-download-receipt, 
+.btn-e-receipt {
+  background: #0086D3;
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+.btn-in-network.disabled {
+	background: #0086d38a;
+  cursor: not-allowed;
+}
+.btn-e-receipt {
+	background-color: #51BEF2;
 }
