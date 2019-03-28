@@ -2,34 +2,68 @@
 	<div class="activity-container">
 		<div class="activity-header-navigation">
 			<div>Select a timeframe</div>
-			<a class="year-selector active">This year</a>
-			<a class="year-selector">Last year</a>
-			<a class="year-selector">Custom</a>
+			<!-- <a class="year-selector" v-bind:class="{'active' : date_selector_type == 1}" v-on:click="setDateSelector(1)">This year</a>
+			<a class="year-selector" v-bind:class="{'active' : date_selector_type == 2}" v-on:click="setDateSelector(2)">Last year</a>
+			<a class="year-selector" v-bind:class="{'active' : date_selector_type == 3}" v-on:click="setDateSelector(3)">Custom</a> -->
 		</div>
 
-		<div class="activity-slider-container">
-			<vue-slider class="range-slider" v-model="range_values" :marks="range_marks" :enableCross="false" :min="1" :max="12" :tooltip="'none'"></vue-slider>
+		<!-- <div class="activity-slider-container">
+			<vue-slider class="range-slider" v-model="range_values" :marks="range_marks" :enableCross="true" :min="1" :max="12" :tooltip="'none'" @drag-start="() => inDragging = true" @drag-end="() => inDragging = false" :dragEnd="sliderDragged( range_values )"></vue-slider>
+		</div> -->
+		<div class="date-picker-container">
+			<div class="btn-picker">
+				<v-date-picker 
+    			mode='single' 
+    			popoverDirection="bottom" 
+    			popoverVisibility="hover"
+    			:formats="formats"
+    			v-model='start_date' 
+    			:input-props='{ class: "", placeholder: "", readonly: true }'
+    		>
+			  </v-date-picker>
+			  <img :src="'../assets/img/calendar.png'">
+			  <span class="oi caret" data-glyph="caret-bottom" aria-hidden="true"></span>
+			</div>
+			<div class="date-arrow">
+				<img :src="'../assets/img/right-arrow.png'">
+			</div>
+			<div class="btn-picker">
+				<v-date-picker 
+    			mode='single' 
+    			popoverDirection="bottom" 
+    			popoverVisibility="hover"
+    			:formats="formats"
+    			v-model='end_date' 
+    			:input-props='{ class: "", placeholder: "", readonly: true }'
+    		>
+			  </v-date-picker>
+			  <img :src="'../assets/img/calendar.png'">
+			  <span class="oi caret" data-glyph="caret-bottom" aria-hidden="true"></span>
+			</div>
+			<div class="date-apply-btn">
+				<button class="btn btn-apply" v-on:click="getActivityData()">Apply</button>
+			</div>
 		</div>
 
 		<div class="benefit-dollars-container">
 			<div class="spending-account-wrapper">
 				<h5>Spending Account</h5>
 				<div class="spending-type-container">
-					<button class="btn-spending btn-medical active">Medical</button>
-					<button class="btn-spending btn-wellness">Wellness</button>
+					<button class="btn-spending btn-medical" v-bind:class="{'active' : spending_type_selected == 'medical'}" v-on:click="changeSpendingType('medical')">Medical</button>
+					<button class="btn-spending btn-wellness" v-bind:class="{'active' : spending_type_selected == 'wellness'}" v-on:click="changeSpendingType('wellness')">Wellness</button>
 				</div>
 			</div>
 			<div class="spending-account-details-container">
 				<div class="spending-details-col-1">
 					<div class="amount-text-wrapper">
 						<h4>
-							S$ <span>4200.00</span>
+							S$ <span>{{ (activity_results.total_allocation) ? activity_results.total_allocation : '0.00' }}</span>
 						</h4>
 						<div>Total Allocation</div>
 					</div>
 					<div class="amount-text-wrapper">
 						<h4>
-							S$ <span>4649.43</span>
+							S$ <span>{{ (activity_results.balance) ? activity_results.balance : '0.00' }}</span>
 						</h4>
 						<div>Balance</div>
 					</div>	
@@ -37,7 +71,7 @@
 				<div class="spending-details-col-2">
 					<div class="amount-text-wrapper">
 						<h4>
-							S$ <span>1550.57</span>
+							S$ <span>{{ (activity_results.total_spent) ? activity_results.total_spent : '0.00' }}</span>
 						</h4>
 						<div>Spent</div>
 					</div>
@@ -50,13 +84,13 @@
 					<div class="in-out-network-container">
 						<div class="in-network-box">
 							<h5>
-								S$ <span>00.00</span>
+								S$ <span>{{ (activity_results.in_network_spent) ? activity_results.in_network_spent : '0.00' }}</span>
 							</h5>
 							<div>In-network</div>
 						</div>
 						<div class="out-network-box">
 							<h5>
-								S$ <span>00.00</span>
+								S$ <span>{{ (activity_results.e_claim_spent) ? activity_results.e_claim_spent : '0.00' }}</span>
 							</h5>
 							<div>Out-of-network</div>
 						</div>
@@ -65,18 +99,35 @@
 			</div>
 		</div>
 		<div class="transactions-wrapper">
-			<div class="total-transactions-container">Total Transactions</div>
+			<div class="total-transactions-container">{{ activity_results.total_in_network_transactions }} Total Transactions</div>
 			<div class="in-out-btn-container">
-				<button class="btn-network btn-in-network active">In-network Transactions</button>
-				<button class="btn-network btn-out-network">Out-of-network Transactions</button>
+				<button class="btn-network btn-in-network" v-bind:class="{'active' : transaction_type == 1}" v-on:click="selectTransactionType(1)">In-network Transactions</button>
+				<button class="btn-network btn-out-network" v-bind:class="{'active' : transaction_type == 2}" v-on:click="selectTransactionType(2)">Out-network Transactions</button>
 			</div>
 			<div class="spent-download-container">
 				<div class="download-container">
-					<span>Download</span>
+					<download-excel
+							v-if    ="transaction_type == 1"
+					    class   = "dl-csv"
+					    :data   = "in_transactions"
+					    :fields = "in_csv_fields"
+					    type		= "csv"
+					    name    = "In-Network-Transactions.csv">
+					    Download
+					</download-excel>
+					<download-excel
+					    v-if    ="transaction_type == 2"
+					    class   = "dl-csv"
+					    :data   = "out_transactions"
+					    :fields = "out_csv_fields"
+					    type		= "csv"
+					    name    = "E-Claim-Transactions.csv">
+					    Download
+					</download-excel>
 					<img :src="'../assets/img/coverage/Download.png'">
 				</div>
 				<div class="total-spent-container">
-					Total Spent <span>S$</span>
+					Total Spent <span>S$ {{ activity_results.total_in_network_spent }}</span>
 				</div>
 			</div>
 		</div>
