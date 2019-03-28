@@ -148,7 +148,8 @@
 	font-size: 14px;
 	font-weight: 700;
 	color: #009EC8;
-	margin-bottom: 5px;
+	margin-top: 3px;
+	margin-bottom: 8px;
 }
 .in-network-box div,
 .out-network-box div {
@@ -156,12 +157,14 @@
 	font-weight: 700;
 	text-transform: uppercase;
 	color: #999;
+	margin-bottom: 3px;
 }
 .transactions-wrapper {
 	display: flex;
 	padding-top: 20px;
   padding: 0 80px;
-  margin-bottom: 25px;	
+  margin-bottom: 25px;
+  padding-top: 20px;	
 }
 .in-out-btn-container button {
 	text-transform: uppercase;
@@ -235,4 +238,28 @@
   background: #fff;
   padding: 20px 85px;
   min-height: 500px;
+}
+.transaction-table-container thead tr th {
+  background: #C6E7F7;
+  color: #555;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.transaction-table-container thead tr th:nth-child(1) {
+	width: 18%;
+}
+.transaction-table-container thead tr th:nth-child(2) {
+	width: 18%;
+}
+.transaction-table-container thead tr th:nth-child(3) {
+	width: 20%;
+}
+.transaction-table-container thead tr th:nth-child(4) {
+	width: 15%;
+}
+.transaction-table-container thead tr th:first-child,
+.transaction-table-container tbody tr th:first-child {
+	padding-left: 50px;
 }

@@ -58,7 +58,7 @@
 							<h5>
 								S$ <span>00.00</span>
 							</h5>
-							<div>Out-network</div>
+							<div>Out-of-network</div>
 						</div>
 					</div>
 				</div>
@@ -81,7 +81,50 @@
 			</div>
 		</div>
 		<div class="transaction-table-container">
-			
+			<table>
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Item/Service</th>
+						<th>Provider</th>
+						<th>Total Amount</th>
+						<th>Payment Type</th>
+						<th>Member</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<span>25 March 2019, 01:20pm</span>
+						</td>
+						<td>
+							<span>General Practitioner - Consultation</span>
+						</td>
+						<td>
+							<span>Stackgecko GP</span>
+						</td>
+						<td>
+							<span>S$ 0.05</span>
+						</td>
+						<td>
+							<span>Mednefits Credits</span>
+						</td>
+						<td>
+							<span>Allan Cheam Alzula</span>
+						</td>
+						<td>
+							<a><i class="fa fa-angle-down"></i></a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div></div>
+							<div></div>
+							<div></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </template>
