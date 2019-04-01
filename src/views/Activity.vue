@@ -102,7 +102,7 @@
 			<div class="total-transactions-container">{{ activity_results.total_in_network_transactions }} Total Transactions</div>
 			<div class="in-out-btn-container">
 				<button class="btn-network btn-in-network" v-bind:class="{'active' : transaction_type == 1}" v-on:click="selectTransactionType(1)">In-network Transactions</button>
-				<button class="btn-network btn-out-network" v-bind:class="{'active' : transaction_type == 2}" v-on:click="selectTransactionType(2)">Out-network Transactions</button>
+				<button class="btn-network btn-out-network" v-bind:class="{'active' : transaction_type == 2}" v-on:click="selectTransactionType(2)">Out-of-network Transactions</button>
 			</div>
 			<div class="spent-download-container">
 				<div class="download-container">
@@ -132,7 +132,7 @@
 			</div>
 		</div>
 		<div id="in-network-table" v-if="transaction_type == 1">
-			<div class="transaction-table-container">
+			<div class="in-network transaction-table-container">
 				<table>
 					<thead>
 						<tr>
@@ -245,8 +245,148 @@
 			</div>
 		</div>
 		<div id="out-network-table" v-if="transaction_type == 2">
-			<div class="transaction-table-container">
-				
+			<div class="out-network transaction-table-container">
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Claim Date</th>
+							<th>Item/Service</th>
+							<th>Provider</th>
+							<th>Total Amount</th>
+							<th>Member</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="status-box-container">
+								<label class="status-box pending">Pending</label>
+							</td>
+							<td>
+								<span>05 March 2019 12:44 AM</span>
+							</td>
+							<td>
+								<span>Health Screening</span>
+							</td>
+							<td>
+								<span>Mednefits</span>
+							</td>
+							<td>
+								<span>S$ 1.00</span>
+							</td>
+							<td>
+								<span>Allan Cheam Alzula</span>
+							</td>
+							<td class="chevron-container">
+								<a><img class="chevron-right" :src="'../assets/img/002-arrow.png'"></a>
+							</td>
+						</tr>
+						<tr class="out-network-subtr">
+							<td colspan="7" class="out-network-subtr-wrapper">
+								<div class="out-network-details">
+									<div class="out-network-subtr-col-1">
+										<div class="status-box-left">
+											<span class="status-box-title">Pending</span>
+											<div class="status-box-date">
+												Claim Date: <span>05 March 2019 12:44 AM</span>
+											</div>	
+										</div>
+									</div>
+									<div class="out-network-subtr-col-2">
+										<div>
+											<div class="trans-row">
+												<div class="label-wrapper">
+													<label>Claim Date</label>
+												</div>
+												<div class="desc-wrapper">
+													<span>05 March 2019 12:44 AM</span>
+												</div>
+											</div>
+											<div class="trans-row">
+												<div class="label-wrapper">
+													<label>Visit Date</label>
+												</div>
+												<div class="desc-wrapper">
+													<span>05 March 2019 12:40 AM</span>
+												</div>
+											</div>
+											<div class="trans-row">
+												<div class="label-wrapper">
+													<label>Transaction #</label>
+												</div>
+												<div class="desc-wrapper">
+													<span>MNF000292</span>
+												</div>
+											</div>
+											<div class="trans-row">
+												<div class="label-wrapper">
+													<label>Claim Type</label>
+												</div>
+												<div class="desc-wrapper">
+													<span>Health Screening</span>
+												</div>
+											</div>
+											<div class="trans-row">
+												<div class="label-wrapper">
+													<label>Provider</label>
+												</div>
+												<div class="desc-wrapper">
+													<span>Mednefits</span>
+												</div>
+											</div>
+											<div class="trans-row">
+												<div class="label-wrapper">
+													<label>Total Amount</label>
+												</div>
+												<div class="desc-wrapper">
+													<span>S$ 1.00</span>
+												</div>
+											</div>
+											<div class="trans-row">
+												<div class="label-wrapper">
+													<label>Spending Account</label>
+												</div>
+												<div class="desc-wrapper">
+													<span>Medical</span>
+												</div>
+											</div>
+											<div class="trans-row">
+												<div class="label-wrapper">
+													<label>Type</label>
+												</div>
+												<div class="desc-wrapper">
+													<span>E-Claim</span>
+												</div>
+											</div>
+											<div class="trans-row">
+												<div class="label-wrapper">
+													<label>Member</label>
+												</div>
+												<div class="desc-wrapper">
+													<span>Allan Cheam Alzula</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="out-network-subtr-col-3">
+										<div>
+											<button class="btn-in-network btn-upload-receipt disabled">Upload Receipt</button>
+											<button class="btn-in-network btn-download-receipt">Download Receipt</button>
+										</div>
+										<div class="trans-receipts-wrapper">
+											<div class="click-box-wrapper">
+												<div class="click-box">
+													<img :src="'https://res.cloudinary.com/dzh9uhsqr/image/upload/v1554040985/buba5pvuwatfwhpzbu1c.jpg'">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
