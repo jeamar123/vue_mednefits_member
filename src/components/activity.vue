@@ -175,6 +175,12 @@
 			selectTransactionType( opt ){
 				this.transaction_type = opt;
 			},
+			onDownloadCSVStart(){
+				this.$parent.showLoading();
+			},
+			onDownloadCSVDone(){
+				this.$parent.hideLoading();
+			},
     }
 	}
 

@@ -111,6 +111,8 @@
 					    class   = "dl-csv"
 					    :data   = "in_transactions"
 					    :fields = "in_csv_fields"
+					    :before-generate = "onDownloadCSVStart"
+					    :before-finish = "onDownloadCSVDone"
 					    type		= "csv"
 					    name    = "In-Network-Transactions.csv">
 					    Download
@@ -120,6 +122,8 @@
 					    class   = "dl-csv"
 					    :data   = "out_transactions"
 					    :fields = "out_csv_fields"
+					    :before-generate = "onDownloadCSVStart"
+					    :before-finish = "onDownloadCSVDone"
 					    type		= "csv"
 					    name    = "E-Claim-Transactions.csv">
 					    Download
