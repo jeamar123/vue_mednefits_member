@@ -10,6 +10,11 @@
 	  			<router-link tag="li" to="/app/activity"><a href="#">Activity</a></router-link>
 	  			<router-link tag="li" to="/app/eclaim"><a href="#">Submit E-Claim</a></router-link>
 	  		</ul>
+	  		<button class="menu-bar-wrapper" v-on:click="toggleMenuBtn()">
+	  			<div class="icon-bar"></div>
+	  			<div class="icon-bar"></div>
+	  			<div class="icon-bar"></div>
+	  		</button>
 	  	</div>
 	  	<div class="need-help-container" v-click-outside="closeLogout">
 	  		<a href="#" class="need-help-text">Need help?</a>
@@ -32,6 +37,14 @@
 	  				<li><a @click.prevent="logout()">Logout</a></li>
 	  			</ul>
 	  		</div>
+	  	</div>
+	  	<div class="navbar-collapse" v-if="showMenuCollapse">
+	  		<ul>
+	  			<router-link tag="li" to="/app/dashboard"><a href="#">Home</a></router-link>
+	  			<router-link tag="li" to="/app/activity"><a href="#">Activity</a></router-link>
+	  			<router-link tag="li" to="/app/eclaim"><a href="#">Submit E-Claim</a></router-link>
+	  			<router-link tag="li" to=""><a href="#">Logout</a></router-link>
+	  		</ul>
 	  	</div>
 	  </div>
 

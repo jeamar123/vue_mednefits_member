@@ -939,3 +939,67 @@ body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) { overflow-y: v
     z-index: 99;
   }
 /*------------------------------------*/
+
+
+/*------- RESPONSIVE MENU BAR --------*/
+  .menu-bar-wrapper {
+    display: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 9px 10px;
+    background: transparent;
+  }
+  .icon-bar {
+    width: 22px;
+    height: 2px;
+    background: #ddd;
+    margin: 0 0 4px 0;
+  }
+  .icon-bar:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 767px) {
+    .navbar {
+      height: 64px;
+    }
+    .navbar .nav-logo {
+      margin-left: 0;
+    }
+    .menu-bar-wrapper {
+      display: block;
+      float: right;
+      cursor: pointer;
+    }
+    .nav-items .nav-ul {
+      display: none;
+    }
+    .need-help-container {
+      display: none;
+    }
+    .navbar-collapse {
+      background: #f1f1f1;
+      box-shadow: 1px 2px 5px #999;
+      position: absolute;
+      left: 0;
+      top: 65px;
+      width: 100%;
+      padding: 0 15px;
+    }
+    .navbar-collapse ul {
+      text-align: left;
+    }
+    .navbar-collapse li a {
+      display: block;
+      padding: 10px 5px;
+      margin: 10px 0;
+      text-transform: uppercase;
+      color: #555;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.8px;
+      cursor: pointer
+    } 
+  }
+
+/*------------------------------------*/

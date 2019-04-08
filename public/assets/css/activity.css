@@ -528,6 +528,11 @@
   border: 1px solid #d9d9d9;
   margin: 0 5px 5px 0;
 }
+@media (min-width: 1606px) {
+  .in-out-btn-container button {
+    padding: 10px 70px;
+  }
+}
 @media (max-width: 1080px) {
   .transaction-table-container {
     padding: 20px 20px;
@@ -586,11 +591,20 @@
   }
 }
 @media (max-width: 767px) {
+  .activity-container {
+    padding: 115px 0px 20px 0px;
+  } 
   .benefit-dollars-container {
     padding: 15px 30px 50px 30px;
   }
+  .spending-type-container button {
+    margin-top: 55px;
+  }
   .spending-account-details-container {
     display: block;
+  }
+  .spending-account-details-container .amount-text-wrapper h4 {
+    font-size: 23px;
   }
   .spending-details-col-1 {
     width: 50%;
@@ -661,6 +675,9 @@
     width: 100%;
     padding: 0 40px;
   }
+  .in-network.transaction-table-container thead tr th:nth-child(1) {
+    width: auto;
+  }
   .in-network-subtr-col-3 button.btn-upload-receipt {
     display: inline-block;
     width: 49%;
@@ -713,25 +730,101 @@
   .in-network.transaction-table-container tbody tr td:first-child {
     padding: 10px;
   }
-  .in-network.transaction-table-container thead tr th:nth-child(2) {
+  .out-network.transaction-table-container thead tr th:first-child {
+    display: none;
+  }
+  .status-box-container {
+    display: none;
+  }
+  .in-network.transaction-table-container thead tr th:nth-child(2),
+  .out-network.transaction-table-container thead tr th:nth-child(2) {
+    width: auto;
+  }
+  .out-network.transaction-table-container thead tr th:nth-child(3) {
     width: auto;
   }
   .in-network.transaction-table-container thead tr th:nth-child(4) {
     display: none;
   }
-  .in-network.transaction-table-container thead tr th:nth-child(5) {
+  .in-network.transaction-table-container thead tr th:nth-child(5),
+  .out-network.transaction-table-container thead tr th:nth-child(5) {
     display: none;
   }
-  .in-network.transaction-table-container thead tr th:nth-child(6) {
+  .in-network.transaction-table-container thead tr th:nth-child(6),
+  .out-network.transaction-table-container thead tr th:nth-child(6) {
     display: none;
   }
   .in-network.transaction-table-container tbody tr td:nth-child(4) {
     display: none;
   }
-  .in-network.transaction-table-container tbody tr td:nth-child(5) {
+  .in-network.transaction-table-container tbody tr td:nth-child(5),
+  .out-network.transaction-table-container tbody tr td:nth-child(5) {
     display: none;
   } 
-  .in-network.transaction-table-container tbody tr td:nth-child(6) {
+  .in-network.transaction-table-container tbody tr td:nth-child(6),
+  .out-network.transaction-table-container tbody tr td:nth-child(6) {
     display: none;
   }  
 }
+@media (max-width: 672px) {
+  .in-out-btn-container button {
+    padding: 10px 25px;
+  }
+}
+@media (max-width: 500px) {
+  .date-picker-container .date-arrow {
+    margin: 0 15px;
+  }
+  .date-picker-container .date-arrow img {
+    width: 15px;
+  }
+}
+@media (max-width: 492px) {
+  .date-picker-container .date-apply-btn .btn {
+    margin-top: 40px;
+  }
+}
+@media (max-width: 479px) {
+  .spending-details-col-2 {
+    margin-top: 0;
+  }
+  .in-network.transaction-table-container thead tr th:nth-child(3),
+  .out-network.transaction-table-container thead tr th:nth-child(4) {
+    display: none;
+  }
+  .in-network.transaction-table-container tbody tr td:nth-child(3),
+  .out-network.transaction-table-container tbody tr td:nth-child(4) {
+    display: none;
+  }
+}
+@media (max-width: 425px) {
+  .in-network-subtr-col-3 button.btn-upload-receipt,
+  .in-network-subtr-col-3 button.btn-download-receipt,
+  .in-network-subtr-col-3 button.btn-e-receipt {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+@media (max-width: 410px) {
+  .spending-details-col-2 {
+    display: block;
+  }
+  .spending-details-col-1, 
+  .spending-details-col-2 {
+    width: 100%;
+  }
+}
+@media (max-width: 390px) {
+  .btn-in-network-wrapper .btn-upload-receipt,
+  .btn-in-network-wrapper .btn-download-receipt {
+    width: 85%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+@media (max-width: 366px) {
+  .in-out-btn-container button {
+    padding: 10px 10px;
+  }
+} 
