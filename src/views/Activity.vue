@@ -240,7 +240,7 @@
 										<div class="in-network-subtr-col-3">
 											<button class="btn-in-network btn-upload-receipt">Upload Receipt</button>
 											<button class="btn-in-network btn-download-receipt disabled">Download Receipt</button>
-											<button class="btn-in-network btn-e-receipt">Mednefits E-Receipt</button>
+											<button v-if="list.payment_type == 'Mednefits Credits'" class="btn-in-network btn-e-receipt" v-on:click="downloadMednefitsReceipt(list.trans_id)">Mednefits E-Receipt</button>
 										</div>
 									</div>
 								</td>

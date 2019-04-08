@@ -157,6 +157,9 @@
 						this.$parent.hideLoading();
 					});
 			},
+			downloadMednefitsReceipt( id ){
+				window.open( axios.defaults.serverUrl + '/download/transaction_receipt/' + id );
+			},
 			setFirstEndDate( firstMonth, lastMonth ){
 				this.start_date = moment( firstMonth + " " + this.current_year,'MM YYYY' ).startOf('month').format('YYYY-MM-DD');
 				this.end_date   = moment( lastMonth + " " + this.current_year,'MM YYYY' ).endOf('month').format('YYYY-MM-DD');
