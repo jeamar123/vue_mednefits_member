@@ -58,6 +58,14 @@ a:focus{
   outline: none;
 }
 
+.text-success{
+  color: #35ad35;
+}
+
+.text-error{
+  color: #ff0000c9;
+}
+
 body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) { overflow-y: visible !important; }
 
 /*---------- NAVBAR -----------*/

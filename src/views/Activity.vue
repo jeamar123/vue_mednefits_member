@@ -144,6 +144,8 @@
 							<th>Item/Service</th>
 							<th>Provider</th>
 							<th>Total Amount</th>
+							<th v-if="activity_results.lite_plan && activity_results.wallet_status">MEDICINE & TREATMENT</th>
+							<th v-if="activity_results.lite_plan && activity_results.wallet_status">CONSULTATION</th>
 							<th>Payment Type</th>
 							<th>Member</th>
 							<th></th>
@@ -152,22 +154,28 @@
 					<tbody v-for="list in in_transactions">
 						<tr v-on:click="toggleTransactionDrop( list )">
 							<td>
-								<span>25 March 2019, 01:20pm</span>
+								<span>{{ list.date_of_transaction }}</span>
 							</td>
 							<td>
-								<span>General Practitioner - Consultation</span>
+								<span>{{ list.clinic_type_and_service }}</span>
 							</td>
 							<td>
-								<span>Stackgecko GP</span>
+								<span>{{ list.clinic_name }}</span>
 							</td>
 							<td>
-								<span>S$ 0.05</span>
+								<span>S$ {{ list.amount }}</span>
+							</td>
+							<td v-if="activity_results.lite_plan && activity_results.wallet_status">
+								S$ <span>{{ list.procedure_cost }}</span>
+							</td>
+							<td v-if="activity_results.lite_plan && activity_results.wallet_status">
+								S$ <span>{{ list.consultation }}</span>
 							</td>
 							<td>
-								<span>Mednefits Credits</span>
+								<span>{{ list.payment_type }}</span>
 							</td>
 							<td>
-								<span>Allan Cheam Alzula</span>
+								<span>{{ list.member }}</span>
 							</td>
 							<td class="chevron-container">
 								<a><img class="chevron-right" :src="'../assets/img/002-arrow.png'"></a>
@@ -175,16 +183,21 @@
 						</tr>
 						<!-- <transition name="fade"> -->
 							<tr v-if="list.showDrop == true" class="in-network-subtr">
-								<td colspan="7" class="in-network-subtr-wrapper">
+								<td v-bind:colspan="activity_results.lite_plan && activity_results.wallet_status ? 9 : 7" class="in-network-subtr-wrapper">
 									<div class="in-network-details">
 										<div class="in-network-subtr-col-1">
 											<div class="member-image-container">
-												<img src="https://res.cloudinary.com/dzh9uhsqr/image/upload/v1549795986/up0ebkyrragfte9bany7.jpg">
-												<label>Stackgecko GP</label>
+												<img :src="list.clinic_image">
+												<label>{{ list.clinic_name }}</label>
 											</div>
 											<div class="service-box">
-												<img :src="'../assets/img/coverage/General-Practitioner.png'">
-												<label>General Practitioner</label>
+												<img :src="list.clinic_type_image">
+												<label v-if="list.clinic_type == 'general_practitioner'">General Practitioner</label>
+												<label v-if="list.clinic_type == 'dental_care'">Dental Care</label>
+												<label v-if="list.clinic_type == 'tcm'">Traditional Chinese Medicine</label>
+												<label v-if="list.clinic_type == 'health_screening'">Health Screening</label>
+												<label v-if="list.clinic_type == 'wellness'">Wellness</label>
+												<label v-if="list.clinic_type == 'health_specialist'">Health Specialist</label>
 											</div>	
 										</div>
 										<div class="in-network-subtr-col-2">
@@ -193,7 +206,7 @@
 													<label>Date</label>
 												</div>
 												<div class="desc-wrapper">
-													<span>02 March 2019, 12:44am</span>
+													<span>{{ list.date_of_transaction }}</span>
 												</div>
 											</div>
 											<div class="trans-row">
@@ -201,7 +214,7 @@
 													<label>Transaction #</label>
 												</div>
 												<div class="desc-wrapper">
-													<span>STA000846</span>
+													<span>{{ list.transaction_id }}</span>
 												</div>
 											</div>
 											<div class="trans-row">
@@ -209,15 +222,28 @@
 													<label>Item/Service</label>
 												</div>
 												<div class="desc-wrapper">
-													<span>Genral Practitioner - Consultation and Sample Service</span>
+													<span>{{ list.clinic_type_and_service }}</span>
 												</div>
 											</div>
 											<div class="trans-row">
 												<div class="label-wrapper">
 													<label>Total Amount</label>
+													<div v-if="list.lite_plan && activity_results.wallet_status" class="procedure-indicator" v-bind:class="list.service_credits && list.transaction_type == 'credits' ? 'blue' : 'green'">
+														<span v-if="!list.service_credits && list.transaction_type == 'cash' || list.service_credits && list.transaction_type == 'cash'">Cash</span>
+														<span v-if="list.service_credits && list.transaction_type == 'credits'">Credits</span>
+													</div>
+													<div v-if="list.lite_plan && activity_results.wallet_status" class="separator"></div>
+													<div v-if="list.lite_plan && ( list.consultation_credits || list.service_credits ) && activity_results.wallet_status" class="consultation-indicator blue" >
+														<span v-if="list.consultation_credits || list.service_credits">Credits</span>
+														<span v-if="!list.consultation_credits && !list.service_credits">Cash</span>
+													</div>
 												</div>
 												<div class="desc-wrapper">
-													<span>S$ 0.01</span>
+													<span>S$ {{ list.amount }}</span>
+													<span v-if="list.lite_plan && activity_results.wallet_status" class="lite-plan-box">{{ list.procedure }}</span>
+													<span v-if="list.lite_plan && activity_results.wallet_status">S$ {{ list.procedure_cost }}</span>
+													<span v-if="list.lite_plan && activity_results.wallet_status" class="lite-plan-box2">Consultation</span>
+													<span v-if="list.lite_plan && activity_results.wallet_status">S$ {{ list.consultation }}</span>
 												</div>
 											</div>
 											<div class="trans-row">
@@ -225,7 +251,7 @@
 													<label>Payment Type</label>
 												</div>
 												<div class="desc-wrapper">
-													<span>Mednefits Credits</span>
+													<span>{{ list.payment_type }}</span>
 												</div>
 											</div>
 											<div class="trans-row">
@@ -233,13 +259,31 @@
 													<label>Member</label>
 												</div>
 												<div class="desc-wrapper">
-													<span>Allan Cheam Alzula</span>
+													<span>{{ list.member }}</span>
 												</div>
 											</div>
 										</div>
 										<div class="in-network-subtr-col-3">
-											<button class="btn-in-network btn-upload-receipt">Upload Receipt</button>
-											<button class="btn-in-network btn-download-receipt disabled">Download Receipt</button>
+											<button class="btn-in-network btn-upload-receipt">Upload Receipt
+												<input type="file" v-on:change="uploadInNetworkReceipt( list, $event.target.files )">
+												<!-- <span v-if="list.uploading"><i class="fa fa-circle-o-notch fa-spin"></i></span> -->
+											</button>
+											<button :disabled="!list.transaction_files || list.transaction_files.length == 0" class="btn-in-network btn-download-receipt" v-on:click="downloadReceipt(list.transaction_files)">Download Receipt</button>
+
+											<p v-if="list.upload_err" class="text-error">{{ list.upload_err_message }}</p>
+											<div class="trans-receipts-wrapper">
+												<div class="click_box_wrapper" v-on:click="showPreview(img)" v-for="img in list.transaction_files">
+													<a href="javascript:void(0)">
+														<div class="click_box">
+															<span class="oi" data-glyph="plus"aria-hidden="true"></span>
+														</div>
+														<img v-if="img.type == 'image' || img.file_type == 'image'" :src="img.file" >
+														<img v-if="img.type == 'excel' || img.file_type == 'excel'" :src="'../assets/e-claim/img/new-assets/Receipt-doc-xls.png'" >
+														<img v-if="img.type == 'pdf' || img.file_type == 'pdf'" :src="'../assets/e-claim/img/new-assets/Receipt-pdf.png'">
+													</a>
+												</div>
+											</div>
+
 											<button v-if="list.payment_type == 'Mednefits Credits'" class="btn-in-network btn-e-receipt" v-on:click="downloadMednefitsReceipt(list.trans_id)">Mednefits E-Receipt</button>
 										</div>
 									</div>
@@ -264,31 +308,33 @@
 							<th></th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
+					<tbody v-for="list in out_transactions">
+						<tr v-on:click="toggleTransactionDrop( list )">
 							<td class="status-box-container">
-								<label class="status-box pending">Pending</label>
+								<label v-if="list.status == 0" class="status-box pending" >Pending</label>
+								<label v-if="list.status == 1" class="status-box approved" >Approved</label>
+								<label v-if="list.status == 2" class="status-box rejected" >Rejected</label>
 							</td>
 							<td>
-								<span>05 March 2019 12:44 AM</span>
+								<span>{{ list.claim_date }}</span>
 							</td>
 							<td>
-								<span>Health Screening</span>
+								<span>{{ list.service }}</span>
 							</td>
 							<td>
-								<span>Mednefits</span>
+								<span>{{ list.merchant }}</span>
 							</td>
 							<td>
-								<span>S$ 1.00</span>
+								<span>S$ {{ list.amount }}</span>
 							</td>
 							<td>
-								<span>Allan Cheam Alzula</span>
+								<span>{{ list.member }}</span>
 							</td>
 							<td class="chevron-container">
 								<a><img class="chevron-right" :src="'../assets/img/002-arrow.png'"></a>
 							</td>
 						</tr>
-						<tr class="out-network-subtr">
+						<tr v-if="list.showDrop == true" class="out-network-subtr">
 							<td colspan="7" class="out-network-subtr-wrapper">
 								<div class="out-network-details">
 									<div class="out-network-subtr-col-1">
@@ -393,6 +439,19 @@
 						</tr>
 					</tbody>
 				</table>
+			</div>
+		</div>
+
+		<div class="preview-box">
+			<div class="img-container">
+				<a href="javascript:void(0)" id="hidePreview" v-on:click="hidePreview()">
+					<span class="oi" data-glyph="x"aria-hidden="true"></span>
+				</a>
+
+				<img hidden>
+
+				<iframe id="src-view-data" src hidden>
+				</iframe>
 			</div>
 		</div>
 	</div>
