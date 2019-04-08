@@ -10,7 +10,8 @@
 				isLogoutDropShow : false,
 				showupdatePassModal : false,
 				update_pass_data : {},
-				isWhiteHeader : false
+				isWhiteHeader : false,
+				showMenuCollapse : false
 			}
 		},
 		created() {
@@ -97,6 +98,13 @@
 						this.hideLoading();
 					});
       },
+      toggleMenuBtn() {
+				if(this.showMenuCollapse == false) {
+					this.showMenuCollapse = true;
+				} else {
+					this.showMenuCollapse = false;
+				}
+			},
     }
 	}
 
