@@ -370,7 +370,7 @@
 										</div>
 									</div>
 									<div class="out-network-subtr-col-3">
-										<div>
+										<div class="btn-in-network-wrapper">
 											<button class="btn-in-network btn-upload-receipt disabled">Upload Receipt</button>
 											<button class="btn-in-network btn-download-receipt">Download Receipt</button>
 										</div>
