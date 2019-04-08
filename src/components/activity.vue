@@ -63,6 +63,14 @@
 							this.in_transactions = res.data.in_network_transactions;
 							this.out_transactions = res.data.e_claim;
 							this.spent_total = this.activity_results.total_spent;
+
+							this.in_transactions.map(function(value, key) {
+						    value.showDrop = false;
+						  });
+						  this.out_transactions.map(function(value, key) {
+						    value.showDrop = false;
+						  });
+
 							if( this.spent_total.indexOf(",") >= 0 ){
 								this.spent_total = this.spent_total.replace(",", "");
 							}
@@ -149,6 +157,9 @@
 						this.$parent.hideLoading();
 					});
 			},
+			downloadMednefitsReceipt( id ){
+				window.open( axios.defaults.serverUrl + '/download/transaction_receipt/' + id );
+			},
 			setFirstEndDate( firstMonth, lastMonth ){
 				this.start_date = moment( firstMonth + " " + this.current_year,'MM YYYY' ).startOf('month').format('YYYY-MM-DD');
 				this.end_date   = moment( lastMonth + " " + this.current_year,'MM YYYY' ).endOf('month').format('YYYY-MM-DD');
@@ -175,6 +186,20 @@
 			selectTransactionType( opt ){
 				this.transaction_type = opt;
 			},
+			onDownloadCSVStart(){
+				this.$parent.showLoading();
+			},
+			onDownloadCSVDone(){
+				this.$parent.hideLoading();
+			},
+			toggleTransactionDrop( list ){
+				if( list.showDrop == true ){
+					list.showDrop = false;
+				}else{
+					list.showDrop = true;
+				}
+				this.$forceUpdate();
+			}
     }
 	}
 
