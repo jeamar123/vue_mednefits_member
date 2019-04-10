@@ -45,6 +45,9 @@
   flex: 3;
   position: relative;
 }
+.eclaim-input-wrapper .btn-medical {
+  margin-right: 5px;
+}
 .eclaim-body-container .btn-medical,
 .eclaim-body-container .btn-wellness{
   background-color: transparent;
@@ -115,7 +118,7 @@
 .eclaim-form-wrapper .form-div .eclaim-input-wrapper span.icon-right.dollar-sign{
   color: #0086D3;
   font-weight: 700;
-  padding: 12px 15px;
+  padding: 9px 15px;
 }
 .eclaim-form-wrapper .form-div .eclaim-input-wrapper.visit-time-input .visit-time-opt-wrapper{
   position: absolute;
@@ -132,7 +135,7 @@
 }
 .visit-time-opt-wrapper .drop-time-btn{
   width: 30px;
-  padding: 12px 0px;
+  padding: 9px 0px;
   text-align: center;
   border-left: 1px solid #e9e9e9;
   cursor: pointer;
@@ -141,7 +144,7 @@
   flex: 1;
   text-align: center;
   position: relative;
-  padding: 10px 0px 2px 0px;
+  /*padding: 10px 0px 2px 0px;*/
   border-left: 1px solid #e9e9e9;
   cursor: pointer;
 }
@@ -152,6 +155,7 @@
   display: block;
   font-size: 12px;
   font-weight: 700;
+  transform: translateY(5px);
 }
 .visit-time-opt-wrapper .drop-day-btn .drop-day-wrapper{
   position: absolute;
@@ -495,4 +499,53 @@
 .eclaim-steps-wrapper .step-details .step-num{
   display: inline-block;
   width: 30px;
+}
+.eclaim-title {
+  display: none;
+}
+@media (max-width: 991px) {
+  .eclaim-container {
+    padding: 150px 15px 20px 15px;
+  }
+  .eclaim-body-container {
+    margin: 50px 0;
+  }
+}
+@media (max-width: 783px) {
+  .eclaim-form-wrapper .form-div label {
+    flex: 1.5;
+  }
+}
+@media (max-width: 767px) {
+  .eclaim-container {
+    padding: 120px 15px 20px 15px;
+  }
+  .eclaim-body-container {
+    grid-template-columns: 1fr;
+  }
+  .eclaim-steps-wrapper {
+    display: none;
+  }
+  .eclaim-title {
+    display: block;
+  }
+  .eclaim-title p {
+    font-size: 14px;
+    font-weight: 700;
+    color: #999;
+    margin: 10px 0 30px;
+    text-align: center;
+  }
+}
+@media (max-width: 450px) {
+  .eclaim-form-wrapper .form-div {
+    display: block;
+  }
+  .eclaim-input-wrapper .btn-medical {
+    margin-right: 10px;
+  }
+  .eclaim-form-wrapper .form-div label {
+    margin-bottom: 5px;
+    display: block;
+  }
 }

@@ -9,12 +9,15 @@
 		<div class="eclaim-body-container">
 			<div class="eclaim-form-wrapper">
 				<div v-if="step_active == 1">
+					<div class="eclaim-title">
+						<p>STEP 1 : Enter Claim Details</p>
+					</div>
 					<div class="form-div">
 						<label>
 							Spending Account<span>*</span>
 						</label>	
 						<div class="eclaim-input-wrapper">
-							<button class="btn btn-medical" style="margin-right: 5px;" v-bind:class="{ active: eclaim_data.spending_type == 'medical' }" v-on:click="setEclaimSpendingType('medical')">Medical</button>
+							<button class="btn btn-medical" v-bind:class="{ active: eclaim_data.spending_type == 'medical' }" v-on:click="setEclaimSpendingType('medical')">Medical</button>
 							<button class="btn btn-wellness" v-bind:class="{ active: eclaim_data.spending_type == 'wellness' }" v-on:click="setEclaimSpendingType('wellness')">Wellness</button>
 						</div>
 					</div>
@@ -133,7 +136,9 @@
 			  	</div>
 		  	</div>
 		  	<div v-if="step_active == 2">
-
+		  		<div class="eclaim-title">
+						<p>STEP 2 : Receipt Verification</p>
+					</div>
           <div class="drop-box">
           	<input ref="receiptUploader" type="file" v-on:change="uploadReceipts($event.target.files);">
             <img :src="'../assets/img/Upload-Receipt.png'" style="width: 45px;">
@@ -177,6 +182,9 @@
 			  	</div>
 		  	</div>
 		  	<div v-if="step_active == 3">
+		  		<div class="eclaim-title">
+						<p>STEP 3 : Claim Submitted</p>
+					</div>
 		  		<div class="eclaim-summary-container">
 		  			<div class="summary">
 		  				<div class="label">

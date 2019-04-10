@@ -11,11 +11,13 @@
 					<div class="item-img">
 						<img :src="list.image">
 					</div>
-					<div class="item-title">
-						<p>{{ list.package_name }}</p>
-					</div>
-					<div class="item-desc">
-						<p>{{ list.package_description }}</p>
+					<div class="coverage-details">
+						<div class="item-title">
+							<p>{{ list.package_name }}</p>
+						</div>
+						<div class="item-desc">
+							<p>{{ list.package_description }}</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -105,6 +107,103 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="white-box recent-transactions-wrapper">
+				<div class="recent-transactions-container">
+					<p class="recent-transactions-text">RECENT TRANSACTIONS</p>
+					<div class="texts-container">
+						<p class="in-network-text">In-Network Transactions</p>
+						<p class="out-network-text">Out-of-Network Transactions</p>
+					</div>
+					<div class="transactions-container">
+						<div class="in-network-transactions">
+
+							<div class="transaction-item" v-for="list in spending_data.in_network_transactions">
+								<div class="icon-wrapper">
+									<img :src="'../assets/img/transaction-icon.png'">
+								</div>
+								<div class="item-desc">
+									<p class="item-date">{{ list.date_of_transaction }}</p>
+									<p class="item-service">{{ list.clinic_type_and_service }}</p>
+									<p class="item-clinic">{{ list.clinic_name }}</p>
+								</div>
+								<div class="item-value">	
+									<p>S$ <span>{{ list.amount }}</span></p>
+									<div v-if="list.cash_status" class="cash-badge">Cash</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="out-network-transactions">
+
+							<div class="transaction-item" v-for="list in spending_data.e_claim">
+								<div class="icon-wrapper">
+									<img :src="'../assets/img/transaction-icon.png'">
+								</div>
+								<div class="item-desc">
+									<p class="item-date">Claim Date: {{ list.claim_date }}</p>
+									<p class="item-service">{{ list.service }}</p>
+									<p class="item-clinic">{{ list.merchant }}</p>
+								</div>
+								<div class="item-value">	
+									<p>S$ <span>{{ list.amount }}</span></p>
+									<label class="transaction-status-label">{{ list.status_text }}</label>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="white-box">
+				<p class="recent-transactions-text">Recent In-Network Transactions</p>
+				 <div class="transactions-container">
+						<div class="in-network-transactions">
+
+							<div class="transaction-item" v-for="list in spending_data.in_network_transactions">
+								<div class="icon-wrapper">
+									<img :src="'../assets/img/transaction-icon.png'">
+								</div>
+								<div class="item-desc">
+									<p class="item-date">{{ list.date_of_transaction }}</p>
+									<p class="item-service">{{ list.clinic_type_and_service }}</p>
+									<p class="item-clinic">{{ list.clinic_name }}</p>
+								</div>
+								<div class="item-value">	
+									<p>S$ <span>{{ list.amount }}</span></p>
+									<div v-if="list.cash_status" class="cash-badge">Cash</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+			</div>
+
+			<div class="white-box">
+				<p class="recent-transactions-text">Recent E-Claim Transactions</p>
+				 <div class="transactions-container">
+				 		<div class="out-network-transactions">
+
+							<div class="transaction-item" v-for="list in spending_data.e_claim">
+								<div class="icon-wrapper">
+									<img :src="'../assets/img/transaction-icon.png'">
+								</div>
+								<div class="item-desc">
+									<p class="item-date">Claim Date: {{ list.claim_date }}</p>
+									<p class="item-service">{{ list.service }}</p>
+									<p class="item-clinic">{{ list.merchant }}</p>
+								</div>
+								<div class="item-value">	
+									<p>S$ <span>{{ list.amount }}</span></p>
+									<label class="transaction-status-label">{{ list.status_text }}</label>
+								</div>
+							</div>
+
+						</div>
+				 </div>
+			</div>
+
 		</div>
 
 		<div class="overlay"></div>
