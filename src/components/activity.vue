@@ -94,17 +94,20 @@
 						this.$parent.hideLoading();
 					});
 			},
-			uploadInNetworkReceipt( list ){
+			uploadInNetworkReceipt( list, upload_data ){
 				if( !list.transaction_files ){
 					list.transaction_files = [];
 				}
 				list.uploading = true;
-				var data = {
-					file : list.upload, 
-					transaction_id : list.transaction_id
-				}
+				let formData = new FormData();
+	    	formData.append('file', upload_data[0]);
+	    	formData.append('transaction_id', list.transaction_id);
+	    	console.log( formData );
 				this.$parent.showLoading();
-				axios.post( axios.defaults.serverUrl + "/employee/create/transaction_receipt/" + this.$parent.user_id, data)
+				axios.post( 
+					axios.defaults.serverUrl + "/employee/create/transaction_receipt/" + this.$parent.user_id, 
+					formData, 
+					{ headers: { 'Content-Type': 'multipart/form-data' } })
 					.then(res => {
 						// console.log( res );
 						list.uploading = false;
@@ -121,44 +124,45 @@
 						console.log( err );
 						list.uploading = false;
 						list.upload_err = true;
-						list.upload_err_message = 'Something went wrong. Please check your internet connection.';
-						this.$parent.hideLoading();
-					});
-			},
-			uploadOutNetworkReceipt( list ){
-				if( !list.files ){
-					list.files = [];
-				}
-				list.uploading = true;
-				var data = {
-					file : list.upload, 
-					e_claim_id : list.transaction_id
-				}
-				this.$parent.showLoading();
-				axios.post( axios.defaults.serverUrl + "/employee/create/e_claim_receipt/" + this.$parent.user_id, data)
-					.then(res => {
-						// console.log( res );
-						list.uploading = false;
-						if( res.data.status == true ){
-							res.data.receipt.file = res.data.receipt.doc_file;
-							list.files.push( res.data.receipt );
-							list.upload_err = false;
-						}else{
-							list.upload_err = true;
-							list.upload_err_message = res.data.message;
-						}
-						this.$parent.hideLoading();
-					})
-					.catch(err => {
-						console.log( err );
-						list.uploading = false;
-						list.upload_err = true;
-						list.upload_err_message = 'Something went wrong. Please check your internet connection.';
+						list.upload_err_message = 'Something went wrong. Please check your internet connection.'
 						this.$parent.hideLoading();
 					});
 			},
 			downloadMednefitsReceipt( id ){
 				window.open( axios.defaults.serverUrl + '/download/transaction_receipt/' + id );
+			},
+			downloadReceipt( files ){
+				// files.map(function(value, key) {
+			    
+			 //  });
+			  for( var i = 0; i < files.length; i++ ){
+			  	var link = document.createElement("a");
+			    link.download = 'download';
+			    link.href = files[i].file;
+			    link.click();
+			  }
+			},
+			showPreview( img ){
+				console.log( img.file );
+				var url = "https://docs.google.com/viewer?url=" + img.file + "&embedded=true&chrome=true";
+				console.log(url);
+
+				$(".preview-box").fadeIn();
+
+				if( img.file_type == 'image' ){
+					$(".preview-box img").show();
+					$(".preview-box .img-container").css({'width': '500px'});
+					$(".preview-box iframe").hide();
+					$(".preview-box img").attr('src', img.file);
+				}else{
+					$(".preview-box iframe").show();
+					$(".preview-box .img-container").css({'width': '80%'});
+					$(".preview-box img").hide();
+					$(".preview-box #src-view-data").attr('src', url);
+				}
+			},
+			hidePreview( ){
+				$(".preview-box").fadeOut();
 			},
 			setFirstEndDate( firstMonth, lastMonth ){
 				this.start_date = moment( firstMonth + " " + this.current_year,'MM YYYY' ).startOf('month').format('YYYY-MM-DD');
@@ -200,6 +204,7 @@
 				}
 				this.$forceUpdate();
 			}
+
     }
 	}
 

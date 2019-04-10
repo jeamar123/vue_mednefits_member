@@ -5,7 +5,7 @@
 	var eclaim = {
 		data() {
 			return {
-				step_active : 1,
+				step_active : 2,
 				eclaim_data : {
 					spending_type : 'medical',
 					hour : parseInt(moment().format('hh')),
