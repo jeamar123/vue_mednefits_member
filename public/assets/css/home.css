@@ -364,6 +364,9 @@
     margin: 0;
     padding: 0 10px;
   }
+  .activity-body-container .account-count {
+    width: 98px;
+  }
 }
 
 @media(max-width: 991px) {
@@ -406,6 +409,7 @@
   }
   .activity-body-container .account-count {
     margin: 20px 0 0 0;
+    width: 100%;
   }
   .white-box:nth-child(3){
     display: block;
