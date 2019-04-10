@@ -61,7 +61,7 @@
 
 	  <div v-if="showLoader" class="main-body-loader">
 			<div class="loader">
-				<img :src="'../assets/img/mednefits_icon_blue.png'" style="	width: 25px;margin-top: 20px;">
+				<img :src="'../assets/img/mednefits_icon_blue.png'">
 			</div>
 		</div>
   </div>

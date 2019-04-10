@@ -116,3 +116,7 @@
 	display: inline-block;
 	cursor: pointer;
 }
+.main-body-loader .loader img {
+  width: 25px;
+  margin-top: 25px;
+}

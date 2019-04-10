@@ -141,7 +141,7 @@
 					</div>
           <div class="drop-box">
           	<input ref="receiptUploader" type="file" v-on:change="uploadReceipts($event.target.files);">
-            <img :src="'../assets/img/Upload-Receipt.png'" style="width: 45px;">
+            <img class="upload-receipt-img" :src="'../assets/img/Upload-Receipt.png'">
             <h5 class="drop-file-text">Drop your file here!</h5>
             <p class="or-text">or</p>
             <p class="select-file-text">Select a file</p>
@@ -151,10 +151,10 @@
 					<div class="uploads-box">
 						<div class="upload-wrapper" v-for="(img,index) in uploading_files">
 							<div class="img-wrapper">
-								<img v-if="img.type == 'image/png' || img.type == 'image/jpeg'" :src="'../assets/img/file-types/Receipt-png.png'" style="width: 30px;">
-								<img v-if="img.type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'" :src="'../assets/img/file-types/Receipt-doc-xls.png'" style="width: 30px;">
-								<img v-if="img.type == 'application/pdf'" :src="'../assets/img/file-types/Receipt-pdf.png'" style="width: 30px;">
-								<img v-if="img.type != 'image/png' && img.type != 'image/jpeg' && img.type != 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' && img.type != 'application/pdf'" :src="'../assets/img/file-types/Receipt-png.png'" style="width: 30px;">
+								<img class="receipt-img" v-if="img.type == 'image/png' || img.type == 'image/jpeg'" :src="'../assets/img/file-types/Receipt-png.png'">
+								<img class="receipt-doc-xls-img" v-if="img.type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'" :src="'../assets/img/file-types/Receipt-doc-xls.png'">
+								<img class="receipt-pdf-img" v-if="img.type == 'application/pdf'" :src="'../assets/img/file-types/Receipt-pdf.png'">
+								<img class="receipt-img" v-if="img.type != 'image/png' && img.type != 'image/jpeg' && img.type != 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' && img.type != 'application/pdf'" :src="'../assets/img/file-types/Receipt-png.png'">
 							</div>
 							<div class="upload-details">
 								<h5>
@@ -168,7 +168,7 @@
 								</h5>
 								<div class="progress-wrapper">
 									<!-- <div class="progress-bar" v-bind:class="{'progress-error' : img.error == true}" style="width: {{img.uploading}}%"></div> -->
-									<div class="progress-bar" v-bind:class="{'progress-error' : img.error == true}" style="width: 0%;"></div>
+									<div class="progress-bar" v-bind:class="{'progress-error' : img.error == true}"></div>
 								</div>
 								<p v-if="img.uploading < 100 && !img.error" class="upload-status">Uploading...</p>
 								<p v-if="img.uploading == 100 && !img.error" class="upload-status text-success">Completed</p>
@@ -266,7 +266,7 @@
 		  	</div>
 		  	<div v-if="step_active == 4">
 		  		<div class="eclaim-success-wrapper">
-						<img :src="'../assets/img/Thank-you.png'" style="width: 80px;">
+						<img class="thank-you-img" :src="'../assets/img/Thank-you.png'">
 						<h5>Thank you!</h5>
 						<p>Your claim has been successfully submitted.<br>Our team will be processing your claim,<br>for claim status updates go to Activity.</p>
 					</div>
@@ -293,8 +293,8 @@
 					<div class="step-wrapper one" v-bind:class="{'active' : step_active >= 2}">
 						<div class="circle-wrapper">
 							<div class="circle">
-								<img v-if="step_active < 2" :src="'../assets/img/eclaim-steps/02-Receipt-Verification-(Grey).png'" style="width: 40px;">
-								<img v-if="step_active >= 2" :src="'../assets/img/eclaim-steps/02-Receipt-Verification-(Blue).png'" style="width: 40px;">
+								<img v-if="step_active < 2" :src="'../assets/img/eclaim-steps/02-Receipt-Verification-(Grey).png'">
+								<img v-if="step_active >= 2" :src="'../assets/img/eclaim-steps/02-Receipt-Verification-(Blue).png'">
 							</div>
 						</div>
 
@@ -307,8 +307,8 @@
 					<div class="step-wrapper two" v-bind:class="{'active':step_active >= 3}">
 						<div class="circle-wrapper">
 							<div class="circle">
-								<img v-if="step_active < 3" :src="'../assets/img/eclaim-steps/03-Claim-Submitted-(Grey).png'" style="width: 40px;">
-								<img v-if="step_active >= 3" :src="'../assets/img/eclaim-steps/03-Claim-Submitted-(Blue).png'" style="width: 40px;">
+								<img v-if="step_active < 3" :src="'../assets/img/eclaim-steps/03-Claim-Submitted-(Grey).png'">
+								<img v-if="step_active >= 3" :src="'../assets/img/eclaim-steps/03-Claim-Submitted-(Blue).png'">
 							</div>
 						</div>
 
